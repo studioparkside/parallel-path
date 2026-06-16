@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parallel Path — Brand Reciprocity Creative Brief</title>
+<title>Brand Reciprocity — Parallel Path</title>
 <style>
 
 /* ─────────────────────────────────────────────
@@ -12,7 +12,6 @@
 :root {
   --sans:  -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
   --mono:  'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-
   --bg:    #ffffff;
   --ink:   #1a1a1a;
   --body:  #5c5c5c;
@@ -21,728 +20,1236 @@
   --rule:  #e5e5e5;
   --teal:  #3C6E71;
   --cadet: #233D4D;
+  --dark:  #1a1a18;
+  --warm:  #f4f2ef;
 }
 
-/* ─────────────────────────────────────────────
-   BASE
-───────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 18px; }
+html { font-size: 18px; scroll-behavior: smooth; }
 body {
   font-family: var(--sans);
   color: var(--body);
-  background: var(--bg);
+  background: #e3e0db;
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
 }
+.page-cards {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero,
+.statement,
+.framework,
+.photo-break,
+.endpoint,
+.pulse,
+.assessment,
+.site-footer {
+  border-radius: 20px;
+  overflow: hidden;
+}
 
 /* ─────────────────────────────────────────────
-   LAYOUT
+   HERO
 ───────────────────────────────────────────── */
-.page {
-  max-width: 880px;
+.hero {
+  background: linear-gradient(170deg, #1a1a18 0%, #2e2920 60%, #1a1a18 100%);
+  padding: 80px 0 104px;
+  position: relative;
+}
+.hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  position: relative;
+  z-index: 1;
+}
+.hero-aside-photo {
+  position: absolute;
+  top: 0; right: 0;
+  width: 44%;
+  height: 100%;
+  z-index: 0;
+}
+.hero-aside-photo::before { display: none; }
+.hero-aside-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  opacity: 0.55;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 38%);
+  mask-image: linear-gradient(to right, transparent 0%, black 38%);
+  display: block;
+}
+.hero-logo {
+  margin-bottom: 80px;
+}
+.hero-logo svg {
+  width: 160px;
+  height: auto;
+  display: block;
+  opacity: 0.88;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 28px;
+}
+.hero-headline {
+  font-size: clamp(58px, 8.5vw, 116px);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  color: rgba(240,237,232,0.96);
+  max-width: 14ch;
+  margin-bottom: 52px;
+}
+.hero-sub {
+  font-size: 20px;
+  line-height: 1.72;
+  color: rgba(240,237,232,0.58);
+  max-width: 52ch;
+  margin-bottom: 56px;
+  letter-spacing: -0.01em;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(240,237,232,0.92);
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  padding: 16px 28px;
+  border-radius: 100px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hero-cta:hover {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+}
+.hero-cta-arrow { font-size: 18px; line-height: 1; }
+
+/* ─────────────────────────────────────────────
+   STATEMENT — "3 things"
+───────────────────────────────────────────── */
+.statement {
+  background: var(--bg);
+  padding: 128px 0 120px;
+}
+.statement-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.statement-numeral {
+  font-size: 200px;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: #f0ede8;
+  user-select: none;
+  margin-top: -16px;
+}
+.statement-content {}
+.section-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--teal);
+  margin-bottom: 20px;
+}
+.statement-headline {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 22ch;
+}
+.statement-body {
+  font-size: 19px;
+  line-height: 1.8;
+  color: var(--body);
+  max-width: 52ch;
+}
+
+/* ─────────────────────────────────────────────
+   FRAMEWORK
+───────────────────────────────────────────── */
+.framework {
+  background: var(--warm);
+  padding: 112px 0 120px;
+}
+.framework-inner {
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 72px;
 }
-
-/* ─────────────────────────────────────────────
-   DARK HERO — cover + bluf merged full-width
-───────────────────────────────────────────── */
-.hero-dark {
-  background: #1a1a18;
-  width: 100%;
+.framework-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+.framework-headline {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.framework-desc {
+  font-size: 18px;
+  line-height: 1.78;
+  color: var(--body);
+  max-width: 44ch;
 }
 
-/* ─────────────────────────────────────────────
-   COVER
-───────────────────────────────────────────── */
-.cover {
-  padding: 88px 72px 68px;
-  max-width: 880px;
+/* ── Reference Image Placeholder ── */
+.blob-wrap {
+  margin-bottom: 56px;
+}
+.blob-placeholder-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--light);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.blob-placeholder-label::before,
+.blob-placeholder-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.blob-ref-img {
+  width: 100%;
+  max-width: 760px;
+  display: block;
   margin: 0 auto;
 }
-.cover-logo { margin-bottom: 44px; }
-.cover-logo svg {
-  width: 110px;
-  height: auto;
+
+/* ── Pillars Grid ── */
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: #dddbd8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.pillar {
+  background: var(--bg);
+  padding: 44px 40px 48px;
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--light);
+  margin-bottom: 14px;
+}
+.pillar-name {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+.pillar-items {
+  list-style: none;
+}
+.pillar-items li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: -0.01em;
+}
+.pillar-items li:last-child { border-bottom: none; }
+
+/* ─────────────────────────────────────────────
+   PHOTO BREAK
+───────────────────────────────────────────── */
+.photo-break {
+  position: relative;
+  height: 64vh;
+  min-height: 440px;
+  overflow: hidden;
+}
+.photo-break img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
   display: block;
 }
-.cover-logo svg path,
-.cover-logo svg rect { fill: rgba(240,237,232,0.82); }
-.cover-title {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  color: rgba(240,237,232,0.45);
-  margin-bottom: 10px;
-}
-.cover-subtitle {
-  font-size: 76px;
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  color: rgba(240,237,232,0.95);
-  margin-bottom: 60px;
-}
-.cover-meta {
-  font-family: var(--mono);
+.photo-break-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26,26,24,0.82) 40%, rgba(26,26,24,0.4) 100%);
   display: flex;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  color: rgba(240,237,232,0.3);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
+  align-items: center;
+  padding: 0 72px;
 }
-.cover-meta span { margin-right: 32px; }
-.cover-meta .draft { margin-left: auto; margin-right: 0; color: rgba(255,255,255,0.15); }
-
-/* ─────────────────────────────────────────────
-   BLUF
-───────────────────────────────────────────── */
-.bluf {
-  max-width: 880px;
+.photo-break-content {
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 64px 72px;
+  width: 100%;
 }
-.bluf-block {
-  padding: 36px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.bluf-block:first-child { padding-top: 0; }
-.bluf-block:last-child { border-bottom: none; padding-bottom: 0; }
-.bluf-label {
-  font-size: 26px;
+.photo-break-quote {
+  font-size: clamp(30px, 3.8vw, 54px);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.03em;
-  color: rgba(240,237,232,0.92);
-  margin-bottom: 16px;
+  color: rgba(240,237,232,0.96);
+  max-width: 18ch;
 }
-.bluf-bullets {
-  list-style: none;
-  max-width: 62ch;
-}
-.bluf-bullets li {
-  font-size: 17px;
-  line-height: 1.82;
-  color: rgba(240,237,232,0.78);
-  padding: 6px 0;
-  padding-left: 20px;
-  position: relative;
-}
-.bluf-bullets li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: #5B9A9E;
-}
-.bluf-text {
-  font-size: 17px;
-  line-height: 1.85;
-  color: rgba(240,237,232,0.78);
-  max-width: 62ch;
+.photo-break-attr {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: rgba(240,237,232,0.35);
+  margin-top: 24px;
 }
 
 /* ─────────────────────────────────────────────
-   TOC
+   ENDPOINT — Venn
 ───────────────────────────────────────────── */
-.toc-section {
-  max-width: 880px;
-  margin: 48px auto 0;
-  padding: 44px 72px;
-  background: #f7f7f7;
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  overflow: hidden;
+.endpoint {
+  background: var(--cadet);
+  padding: 120px 0 128px;
 }
-.toc-eyebrow {
-  font-family: var(--mono);
-  font-size: 13px;
+.endpoint-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.endpoint-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
   font-weight: 700;
-  letter-spacing: 0.3px;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 20px;
+}
+.endpoint-headline {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: rgba(240,237,232,0.96);
+  margin-bottom: 28px;
+}
+.endpoint-body {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(240,237,232,0.6);
+  margin-bottom: 40px;
+}
+.endpoint-pill {
+  display: block;
+  margin: 56px 40px 0;
+  padding: 36px 60px 44px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.62;
+}
+.framework-bridge {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+.framework-bridge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--body);
+  text-decoration: none;
+  border: 1.5px solid #dddbd8;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background: var(--bg);
+  transition: border-color 0.15s, color 0.15s;
+  cursor: default;
+}
+.framework-bridge-btn:hover {
+  border-color: var(--teal);
   color: var(--teal);
+}
+.venn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sec-num {
+  font-size: 108px;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  user-select: none;
+  color: rgba(26,26,24,0.06);
+  margin-bottom: 4px;
+}
+.endpoint .sec-num { color: rgba(255,255,255,0.07); }
+
+/* ─────────────────────────────────────────────
+   PULSE REPORT CALLOUT
+───────────────────────────────────────────── */
+.pulse {
+  background: var(--bg);
+  padding: 96px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pulse-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+.pulse-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+.pulse-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.pulse-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--teal);
+  margin-bottom: 20px;
+}
+.pulse-headline {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
   margin-bottom: 24px;
 }
-.toc-list { list-style: none; }
-.toc-list li {
-  padding: 11px 0;
-  border-bottom: 1px solid var(--rule);
+.pulse-body {
+  font-size: 17px;
+  line-height: 1.82;
+  color: var(--body);
+  margin-bottom: 36px;
 }
-.toc-list li:last-child { border-bottom: none; }
-.toc-list a {
+.pulse-item {
   display: flex;
-  align-items: baseline;
-  gap: 20px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--ink);
-  text-decoration: none;
-  transition: color 0.15s;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
 }
-.toc-list a:hover { color: var(--teal); }
-.toc-num {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  color: var(--teal);
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-top: 7px;
   flex-shrink: 0;
-  min-width: 18px;
+}
+.pulse-item-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
 }
 
 /* ─────────────────────────────────────────────
-   CONTENT SECTIONS
+   ASSESSMENT
 ───────────────────────────────────────────── */
-.content-section { margin-top: 96px; }
-.content-section:last-child { padding-bottom: 96px; }
-
-.section-label {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+.assessment {
+  background: var(--warm);
+  padding: 120px 0 140px;
+}
+.assessment-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
+.assessment-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--teal);
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--rule);
+  margin-bottom: 20px;
 }
-.section-heading {
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+.assessment-headline {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   color: var(--ink);
-  margin-top: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
-.section-lede {
-  font-size: 26px;
+.assessment-sub {
+  font-size: 18px;
+  line-height: 1.72;
+  color: var(--body);
+  margin-bottom: 72px;
+}
+.question-block {
+  margin-bottom: 56px;
+}
+.question-divider {
+  height: 1px;
+  background: #dddbd8;
+  margin-bottom: 56px;
+}
+.question-text {
+  font-size: 19px;
   font-weight: 700;
-  line-height: 1.35;
   letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 28px;
-  max-width: 62ch;
+  margin-bottom: 24px;
+  line-height: 1.35;
 }
-
-p {
-  font-size: 17px;
-  line-height: 1.82;
-  margin-bottom: 22px;
-}
-p:last-child { margin-bottom: 0; }
-strong { font-weight: 600; color: var(--ink); }
-.content-section p { max-width: 65ch; }
-
-/* ─────────────────────────────────────────────
-   SUB-SECTIONS
-───────────────────────────────────────────── */
-.subsection {
-  margin-top: 48px;
-  padding-top: 36px;
-  border-top: 1px solid var(--rule);
-}
-.subsection-label {
+.question-num {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  color: var(--teal);
-  margin-bottom: 18px;
-}
-
-/* ─────────────────────────────────────────────
-   THINGS LIST
-───────────────────────────────────────────── */
-.things-list { list-style: none; margin-bottom: 28px; max-width: 65ch; }
-.things-list li {
-  font-size: 17px;
-  line-height: 1.82;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-}
-.things-list li:first-child { padding-top: 0; }
-.things-list li:last-child { border-bottom: none; }
-
-/* ─────────────────────────────────────────────
-   FEEL LIST
-───────────────────────────────────────────── */
-.feel-list { list-style: none; margin: 24px 0 32px; counter-reset: feel; max-width: 62ch; }
-.feel-list li {
-  counter-increment: feel;
-  display: flex;
-  gap: 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-}
-.feel-list li:last-child { border-bottom: none; }
-.feel-list li::before {
-  content: counter(feel);
-  font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--light);
-  min-width: 16px;
-  flex-shrink: 0;
+  letter-spacing: 0.3px;
+  margin-right: 10px;
 }
-.feel-list li span {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.6;
-  color: var(--ink);
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 11px 22px;
+  border: 1.5px solid #dddbd8;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--body);
+  letter-spacing: -0.01em;
+  background: var(--bg);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+.option-label:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.option-label input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.option-label.selected {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #fff;
 }
 
-/* ─────────────────────────────────────────────
-   THREE AREAS
-───────────────────────────────────────────── */
-.areas-block { margin-top: 44px; }
-.area-item {
-  padding: 32px 0;
-  border-top: 1px solid var(--rule);
+/* Contact fields */
+.contact-section {
+  margin-bottom: 40px;
 }
-.area-num {
-  font-family: var(--mono);
-  font-size: 11px;
+.contact-headline {
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: 0.3px;
-  color: var(--teal);
-  margin-bottom: 10px;
-}
-.area-name {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+  line-height: 1.35;
 }
-.area-desc {
-  font-size: 17px;
-  line-height: 1.8;
-  max-width: 62ch;
-  margin-bottom: 18px;
+.contact-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
 }
-.area-blocks { list-style: none; }
-.area-blocks li {
+.contact-full {
+  margin-bottom: 14px;
+}
+.field-wrap {}
+.field-label {
+  display: block;
   font-family: var(--mono);
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.3px;
   color: var(--mid);
-  line-height: 1;
-  padding: 7px 0;
-  border-bottom: 1px solid var(--rule);
+  margin-bottom: 8px;
 }
-.area-blocks li:first-child { border-top: 1px solid var(--rule); }
-
-/* ─────────────────────────────────────────────
-   IMAGES
-───────────────────────────────────────────── */
-.img-block { margin-top: 52px; }
-.img-block img {
+.field-input {
   width: 100%;
-  display: block;
-  border: 1px solid var(--rule);
+  padding: 14px 18px;
+  border: 1.5px solid #dddbd8;
   border-radius: 8px;
-}
-.img-block svg {
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  overflow: hidden;
-  display: block;
-  width: 100%;
-}
-.img-caption {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.3px;
-  color: var(--light);
-  margin-top: 12px;
-  line-height: 1.7;
-  max-width: 62ch;
-}
-
-/* ─────────────────────────────────────────────
-   CHANNEL BLOCKS
-───────────────────────────────────────────── */
-.channels { margin-top: 44px; }
-.channel-block {
-  padding: 32px 0;
-  border-top: 1px solid var(--rule);
-}
-.channel-name {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 12px;
-}
-.channel-desc {
-  font-size: 17px;
-  line-height: 1.82;
-  max-width: 65ch;
-}
-
-/* ─────────────────────────────────────────────
-   LANDING PAGE OUTLINE
-───────────────────────────────────────────── */
-.lp-outline-wrap {
-  background: #f7f7f7;
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: 44px 52px;
-  margin-top: 40px;
-}
-.lp-outline-eyebrow {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  color: var(--teal);
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--rule);
-}
-.lp-item {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--rule);
-}
-.lp-item:last-child { border-bottom: none; padding-bottom: 0; }
-.lp-item-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  color: var(--teal);
-  margin-bottom: 7px;
-}
-.lp-item-title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
-.lp-item-desc {
+  font-family: var(--sans);
   font-size: 16px;
-  line-height: 1.78;
-  max-width: 60ch;
-}
-.lp-placeholder {
-  font-family: var(--mono);
-  font-size: 11px;
   color: var(--ink);
-  margin-top: 14px;
-  line-height: 1.65;
-  max-width: 58ch;
-  padding: 12px 16px;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
+  background: var(--bg);
+  outline: none;
+  letter-spacing: -0.01em;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
 }
+.field-input:focus { border-color: var(--teal); }
+.field-input::placeholder { color: var(--light); }
 
-/* ─────────────────────────────────────────────
-   MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .cover, .bluf, .toc-section, .doc-footer { padding-left: 28px; padding-right: 28px; }
-  .page { padding-left: 28px; padding-right: 28px; }
-  .cover-subtitle { font-size: 44px; }
-  .section-heading { font-size: 26px; }
-  .section-lede { font-size: 21px; }
-  .lp-outline-wrap { padding: 28px 24px; }
+.submit-area {
+  margin-top: 48px;
+}
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: rgba(240,237,232,0.96);
+  border: none;
+  padding: 18px 38px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.submit-btn:hover { background: var(--cadet); }
+.submit-note {
+  font-size: 13px;
+  color: var(--light);
+  margin-top: 16px;
+  letter-spacing: 0;
 }
 
 /* ─────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────── */
-.doc-footer {
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  color: var(--light);
-  padding: 34px 72px;
-  max-width: 880px;
+.site-footer {
+  background: var(--dark);
+  padding: 60px 0;
+}
+.footer-inner {
+  max-width: 1120px;
   margin: 0 auto;
-  border-top: 1px solid var(--rule);
+  padding: 0 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo svg {
+  width: 140px;
+  height: auto;
+  display: block;
+  opacity: 0.38;
+}
+.footer-right {
+  text-align: right;
+}
+.footer-link {
+  font-size: 14px;
+  color: rgba(240,237,232,0.4);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px;
+}
+.footer-link:hover { color: rgba(240,237,232,0.65); }
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: rgba(240,237,232,0.2);
+  margin-top: 8px;
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .hero-inner,
+  .statement-inner,
+  .framework-inner,
+  .endpoint-inner,
+  .pulse-inner,
+  .footer-inner { padding: 0 28px; }
+  .assessment-inner { padding: 0 28px; }
+
+  .hero { padding: 56px 0 72px; }
+  .hero-logo { margin-bottom: 52px; }
+  .hero-aside-photo { display: none; }
+  .sec-num { font-size: 64px; }
+
+  .statement { padding: 80px 0; }
+  .statement-inner { grid-template-columns: 1fr; gap: 0; }
+  .statement-numeral { font-size: 96px; margin-bottom: 8px; }
+  .statement-headline { font-size: 34px; }
+  .statement-body { font-size: 17px; }
+
+  .framework { padding: 80px 0; }
+  .framework-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 48px; }
+  .framework-headline { font-size: 40px; }
+  .blob-wrap { display: none; } /* hide on mobile — pillars tell the story */
+  .pillars { grid-template-columns: 1fr; }
+
+  .photo-break { height: 50vh; }
+  .photo-break-overlay { padding: 0 28px; }
+
+  .endpoint { padding: 80px 0; }
+  .endpoint-inner { grid-template-columns: 1fr; }
+  .endpoint-headline { font-size: 34px; }
+
+  .pulse { padding: 72px 0; }
+  .pulse-inner { grid-template-columns: 1fr; }
+  .pulse-photo { display: none; }
+  .pulse-headline { font-size: 30px; }
+
+  .assessment { padding: 80px 0 100px; }
+  .assessment-headline { font-size: 42px; }
+  .assessment-sub { margin-bottom: 48px; }
+  .contact-fields { grid-template-columns: 1fr; }
+
+  .site-footer { padding: 48px 0; }
+  .footer-inner { flex-direction: column; gap: 28px; }
+  .footer-right { text-align: center; }
 }
 
 </style>
 </head>
 <body>
+<div class="page-cards">
 
-<!-- ─────────────────────────────────────────
-     DARK HERO (cover + bluf)
-───────────────────────────────────────────── -->
-<div class="hero-dark">
-<div class="cover">
-  <div class="cover-logo"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 379 152"><path d="M227,121l-5-1.3c-6.1-1.6-9.5-3.1-9.5-7s3.4-6.8,8.7-6.8,7.9,3.1,8.3,8.8h13.3c-1.1-8.2-9.3-13.3-21.6-13.3s-21.2,6.4-21.2,15.5,4.4,11.6,15,14.2l4.9,1.2c7.5,1.8,10.7,4.2,10.7,8s-3.7,6.9-9.7,6.9-9-3.8-9.4-10.5h-13.5c1.2,9.6,9.3,14.8,22.9,14.8s22.5-5,22.5-16.1-6.3-11.9-16.6-14.5Z"/><path d="M128.3,124.5c0-7.2,3-10.8,9.1-10.8s4.5.2,7.2.6v-11.7c-.9,0-1.9-.1-2.7-.1-4.5,0-7.8,1.8-10.3,5.6-1.4,2-2.3,4.1-2.9,6.2,0,.3-.3.4-.6.4-.3,0-.5-.3-.5-.6v-11.5h-14.2v47.8h14.8v-26Z"/><path d="M92.3,142.7c.2,0,.4.3.4.5l.4,7.2h13.5l-.2-3.9c-.2-3-.3-4.9-.3-6.1v-19.5c.1-5.8-1.5-10.4-4.6-13.6-3.8-3.8-9.8-5.7-17.9-5.7-12,0-21.2,6.1-22.5,15h13.7c.4-6.9,3.5-10.7,8.8-10.7s8.3,3.6,8.3,11.2v2.8c0,.3-.2.5-.5.6l-9,1.5c-17,3-23.1,7.1-23.1,16s8.9,13.4,16.6,13.4,12.5-2.9,15.9-8.5c.1-.2.4-.3.6-.3ZM81.8,144.7c-4.7,0-7.8-3.2-7.8-8.2s5.3-9.8,17.3-10.9c.2,0,.3,0,.4.1.1.1.2.3.2.4v4.3c0,9.7-5.2,14.1-10.1,14.1Z"/><path d="M370.1,135.9c-1.8,6.1-6.8,9.7-13.3,9.7s-13.5-7-13.5-18.7.3-.6.6-.6h33.7v-1.4c0-13.8-10.2-23.4-24.9-23.4s-25.2,8.7-25.2,24.8,13.4,25.1,26.7,25.1,20.7-5.8,23.2-15.6h-7.3ZM352.6,106c2.3,0,4.2.7,5.6,2.2,2.3,2.4,3.4,6.5,3.4,12.8,0,.3-.3.6-.6.6h-17.1c-.2,0-.3,0-.4-.2-.1-.1-.2-.3-.2-.4.2-9.9,3.3-14.9,9.3-14.9Z"/><path d="M28.2,84.2H4.9v66.2h16.1v-25.4c0-.3.3-.6.6-.6h6.6c14,0,30.8-3.5,30.8-20.4s-10.4-19.8-30.8-19.8ZM27.5,119.1h-5.9c-.3,0-.6-.3-.6-.6v-28.3c0-.3.3-.6.6-.6h5.9c9.2,0,14.5,5.3,14.5,14.5s-5.2,14.9-14.5,14.9Z"/><rect x="249.2" y="102.6" width="14.8" height="47.8"/><path d="M321.8,150.4v-68.1h-14.8v25.7c0,.2-.2.5-.4.5-.2,0-.5,0-.6-.2-3.2-4.5-8.1-6.8-14.6-6.8-13.1,0-21.6,9.7-21.6,24.7s8.3,25.2,21.7,25.2,12-2.9,15.3-8.5c.1-.2.4-.3.6-.3.2,0,.4.3.4.6v7.1h14.1ZM296.2,145c-6.8,0-10.2-6.3-10.2-18.8s3.4-18.3,10.1-18.3,11.2,7.5,11.2,18.3-4.7,18.8-11.2,18.8Z"/><g><rect x="214.6" y=".5" width="15.4" height="12.1"/><path d="M69,11.3v8.9c0,.3-.3.6-.6.6h-7.2v4.9h7.2c.3,0,.6.3.6.6v30.5c0,8.8,3.8,11.9,14.4,11.9s7.9,0,11.3-.2v-4.7h-4.7c-4.1,0-6.2-1-6.2-6.5v-31c0-.3.4-.6.7-.6h10.3v-4.9h-10.3c-.3,0-.6-.3-.6-.6V5.9l-14.8,5.4Z"/><path d="M147,68.6V20.8h-14.8v24.3c0,11.2-3.7,17.9-9.9,17.9s-7.4-1.4-7.4-10.5v-31.8h-14.8v30c0,11.9,6.1,18.8,16.8,18.8s12.2-3,15-8.3c.1-.2.4-.4.6-.3.3,0,.4.3.4.6v7.1h14.1Z"/><path d="M0,49.5c1.6,12.8,12.3,20.1,29.4,20.1s28.2-11.1,28.2-21.4-10.3-16.9-21.4-19.6l-8.4-2c-7.7-1.8-11.1-4.9-11.1-10s5.4-10.5,12.9-10.5,11.8,4.4,12.4,12.4h14.7C55.1,7.7,44.8,1,29.6,1S2.9,11.8,2.9,22.1s5.7,15.2,20.4,19l7.2,1.8c6.3,1.6,12.7,4.2,12.7,11.3s-5.6,10.3-13.9,10.3-13.9-5.3-14.4-15H0Z"/><path d="M263.4,69.7c15.7,0,26.7-10.4,26.7-25.2s-11.2-24.8-26.7-24.8-26.7,8.5-26.7,24.8,11,25.2,26.7,25.2ZM263.4,24.1c9.5,0,10.6,11.6,10.6,20.4s-1.2,20.8-10.6,20.8-10.6-11.9-10.6-20.8,1.2-20.4,10.6-20.4Z"/><rect x="214.9" y="20.8" width="14.8" height="47.8"/><path d="M189.8,26.2c0,.2-.2.5-.4.5-.2,0-.5,0-.6-.2-3.2-4.5-8.1-6.8-14.6-6.8-13.1,0-21.6,9.7-21.6,24.7s8.3,25.2,21.7,25.2,12-2.9,15.3-8.5c.1-.2.4-.3.6-.3.2,0,.4.3.4.6v7.1h14.1V.5h-14.8v25.7ZM178.9,63.2c-6.8,0-10.2-6.3-10.2-18.8s3.4-18.3,10.1-18.3,11.2,7.5,11.2,18.3-4.7,18.8-11.2,18.8Z"/></g><path d="M148.7,82.3v68.1h14.8v-17.4c0-.2,0-.3.2-.4l6.3-6c.1-.1.3-.2.5-.1.2,0,.3.2.4.3l11.3,23.6h16.3l-16.6-34.5c-.1-.2,0-.5.1-.7l13.5-12.7h-8.3l-22.7,21.7c-.2.2-.4.2-.6.1-.2,0-.3-.3-.3-.5v-41.6h-14.8Z"/><rect x="248.9" y="82.3" width="15.4" height="12.1"/></svg></div>
-  <div class="cover-title">Creative Review</div>
-  <div class="cover-subtitle">Brand<br>Reciprocity</div>
-  <div class="cover-meta">
-    <span>Parallel Path</span>
-    <span>June 2026</span>
-    <span class="draft">Draft 1</span>
-  </div>
-</div>
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
 
-<!-- ─────────────────────────────────────────
-     BLUF
-───────────────────────────────────────────── -->
-<div class="bluf">
-  <div class="bluf-block">
-    <div class="bluf-label">What I'm Seeing</div>
-    <p class="bluf-text">The thinking behind Brand Reciprocity is solid. The research holds up. The framework is part of the Parallel Path brand. What isn't working yet is how it shows up. The current landing page is built for someone who already believes, not someone who just arrived.</p>
-  </div>
-  <div class="bluf-block">
-    <div class="bluf-label">Where the Gaps Are</div>
-    <p class="bluf-text">The landing page leads with too much information before it earns the reader's attention. The graphic requires explanation to work. The name "Brand Reciprocity" is being asked to lead before the idea has had a chance to land. There are no Parallel Path client examples yet, which makes the proof section feel thin.</p>
-  </div>
-  <div class="bluf-block">
-    <div class="bluf-label">Recommendations</div>
-    <ul class="bluf-bullets">
-      <li>Lead with our unique perspective and earn the framework through the narrative.</li>
-      <li>Rebuild the landing page around a shorter, more generous layout with one clear ask.</li>
-      <li>Treat this as a distributed brand campaign, not a microsite.</li>
-    </ul>
-  </div>
-</div>
-
-</div><!-- end .hero-dark -->
-
-<!-- ─────────────────────────────────────────
-     TOC
-───────────────────────────────────────────── -->
-<div class="toc-section">
-  <div class="toc-eyebrow">What's on This Page</div>
-  <ul class="toc-list">
-    <li><a href="#building"><span class="toc-num">01</span>Discovery</a></li>
-    <li><a href="#audience"><span class="toc-num">02</span>Audience</a></li>
-    <li><a href="#three-areas"><span class="toc-num">03</span>Reciprocity</a></li>
-    <li><a href="#rollout"><span class="toc-num">04</span>Rollout</a></li>
-    <li><a href="#landing-page"><span class="toc-num">05</span>Landing Page</a></li>
-  </ul>
-</div>
-
-<!-- ─────────────────────────────────────────
-     MAIN CONTENT
-───────────────────────────────────────────── -->
-<div class="page">
-
-  <!-- 01 — Building on What's Already Working -->
-  <section id="building" class="content-section">
-    <div class="section-label">Strategy</div>
-    <div class="section-heading">Building on What's Already Working</div>
-    <p class="section-lede">A good foundation. A few things worth changing.</p>
-    <p>After several conversations with the team at Parallel Path, I have a clear picture of what Brand Reciprocity is and why it was built. The research is solid and the framework holds up. Where things get stuck is format and sequencing.</p>
-    <p>The current landing page leads with a state-of-the-industry argument, moves through dense consumer research, introduces a complex graphic, and then asks the reader to download a 24-page PDF. By the time someone gets to the actual offer, they've already made three decisions about whether to keep reading. Most won't make it that far.</p>
-    <p>The page is built for someone who already believes. It needs to be built for someone who just arrived.</p>
-
-    <div class="subsection">
-      <div class="subsection-label">The Infographic</div>
-      <p>The gear-and-circle system is conceptually ambitious but visually overloaded. Multiple fonts, five colors, arrows pointing in four directions, and a legend at the bottom that asks your eye to travel back and forth to decode what you're seeing. In reviewing it, I didn't understand that the gears were meant to close the gap between brand and consumer until it was explained out loud. A graphic that requires a voiceover to work isn't ready to travel on its own.</p>
+    <div class="hero-logo">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 742 415.4">
+  <g>
+    <path d="M19.3,162.2v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H0v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+    <path d="M201.1,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM180.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M265.5,167.1v-51.1c0-8.4-1.9-13-16.5-14.4v-6.5c16.5-2.6,32-6.3,47.6-13.5l4.6,4.4-4.2,28.3h7c8.1-20.9,16.5-32.7,30.4-32.7s5.8.5,9.1,1.9v30.4c-5.6-2.8-10.9-3.5-15.3-3.5-20.9,0-29,16.7-29,32.5v24.1c0,10.2,5.6,11.4,17.2,13.5v7h-67.3v-7c10.9-2.1,16.5-3.3,16.5-13.5Z" fill="#fff"/>
+    <path d="M408.2,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM387.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M470.5,167.1v-80.7c0-8.4.2-41-17-42.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v138.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M534.1,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M577.3,136.9c0-34.1,26.5-53.6,55.7-53.6s53.4,28.8,43.9,51.6h-65.5c3,22.5,17,36.2,37.2,36.2s20-3.7,24.6-9.8l4.9,3.9c-6,14.9-23.2,23.9-45,23.9-32.3,0-55.7-20.2-55.7-52.2ZM645.8,125.3c3-16.3-1.6-32.5-15.3-32.5s-19.7,10.2-19.7,32v.5h35.1Z" fill="#fff"/>
+    <path d="M691.4,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M240.9,336c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM220.4,339c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M297.5,334.8v-71.3h-17.6v-9.3c15.8-5.8,30.7-14.9,42.5-25.8h8.8v23.9l27.9-2.6c-.5,5.1-.7,8.6-.7,13.7h-27.2v61.8c0,8.8,3,12.1,9.3,12.1s15.1-1.9,20.7-3.7v8.4c-9.5,3.7-26.5,9.1-39.7,13-14.2,0-23.9-11.4-23.9-20.2Z" fill="#fff"/>
+    <path d="M444.6,332.3v-44.6c0-16-5.6-20.7-13.7-20.7s-12.1,1.9-20.2,11.6v53.6c0,10.2,4.6,11.4,12.8,13.5v7h-63.4v-7c12.1-2.1,17-3.3,17-13.5v-104.7c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v71.1c10-10.9,20-20.2,37.4-20.2,24.8,0,30.2,19.7,30.2,35.8v48.1c0,10.2,4.6,11.4,15.3,13.5v7h-61.8v-7c8.1-2.1,12.8-3.3,12.8-13.5Z" fill="#fff"/>
+    <path d="M59,327.1v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H39.7v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+  </g>
+  <g>
+    <path d="M41.6,388.4h18.9v5h-12.5v6.4h8.9v5h-8.9v10h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M65.3,401.6c0-8.2,5.5-13.8,13.6-13.8s13.3,5.6,13.3,13.8-5.5,13.8-13.6,13.8-13.3-5.6-13.3-13.8ZM85.6,401.8v-.5c0-5.3-2.4-8.4-6.8-8.4s-6.8,3-6.8,8.4v.5c0,5.3,2.5,8.4,6.8,8.4s6.8-3,6.8-8.4Z" fill="#fff"/>
+    <path d="M99.2,388.4h10.6c8.1,0,10.8,3,10.8,7.2s-2.4,6.3-6.4,7.1c4.2,1,6,4.1,6.7,10,0,.5.2,1.7.2,2.1h-6.6s0-.9,0-1.2c-.6-5.1-2.2-8.3-6.6-8.4h-2.4v9.6h-6.3v-26.4ZM108.9,401.2c3.9,0,5.5-2.3,5.5-4.6s-1.5-3.8-5.2-3.8h-3.7v8.5l3.3-.2Z" fill="#fff"/>
+    <path d="M140.3,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M171.3,388.4h19.8v4.9h-13.5v5.6h8.6v4.9h-8.6v6h13.9v5h-20.2v-26.4Z" fill="#fff"/>
+    <path d="M206.6,388.4h7.1l9.3,26.4h-6.7l-2.3-6.6h-9.1l-2.3,6.6h-5.7l9.7-26.4ZM212.8,403.8l-3.1-9.1-3.3,9.1h6.3Z" fill="#fff"/>
+    <path d="M229,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M256.1,393.4h-7.6v-5h21.5v5h-7.5v21.4h-6.4v-21.4Z" fill="#fff"/>
+    <path d="M276.1,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M314,403.1l-9.2-14.7h7.2l5.7,9.8,5.7-9.8h6.3l-9.3,14.9v11.5h-6.4v-11.7Z" fill="#fff"/>
+    <path d="M347.6,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M371.6,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M383.9,388.4h6.7l6.5,19.2,6.2-19.2h5.7l-9.3,26.4h-6.5l-9.3-26.4Z" fill="#fff"/>
+    <path d="M414.9,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M429.5,388.4h7.1l10.7,16.5v-16.5h5.4v26.4h-6.1l-11.8-18.2v18.2h-5.4v-26.4Z" fill="#fff"/>
+    <path d="M459.9,402.1c0-8.8,5.2-14.2,13.1-14.2s10.8,3.6,11.7,9.6h-6.2c-.5-2.9-2.4-4.4-5.4-4.4s-6.6,3.2-6.6,8.8v.5c0,5.2,2.5,8.1,6.7,8.1s5.3-1.7,5.6-4.6h-5.2v-4.5h11.3v13.4h-5.6v-3.4c-1.4,2.5-3.9,4-7.5,4-7.2,0-11.8-5.2-11.8-13.3Z" fill="#fff"/>
+  </g>
+</svg>
     </div>
 
-    <div class="subsection">
-      <div class="subsection-label">A Few Specific Things That Aren't Serving the Page</div>
-      <ul class="things-list">
-        <li><strong>H&amp;W.</strong> It signals insider language before the reader has opted in. And it may not apply to a lot of the brands we're trying to reach.</li>
-        <li><strong>Multiple CTAs.</strong> Take the assessment, download the framework, request a pulse, join the community. Pick one.</li>
-        <li><strong>"We're not pitching you."</strong> Reads as defensive and draws attention to exactly what it's trying to deflect. We are pitching our services — that's the point.</li>
-        <li><strong>The brand examples.</strong> AG1 and Oura Ring are recognizable but they aren't Parallel Path clients. Using them as proof points raises the question of why our own work isn't front and center. It also limits who feels like the framework applies to them.</li>
-      </ul>
-      <p>I don't want to rip this down and start over. Let's edit with intention and get more deliberate about the story, the format, and the visual language before we press go.</p>
+    <p class="hero-eyebrow">Brand Reciprocity</p>
+
+    <h1 class="hero-headline">The brands people choose aren't lucky. They're built.</h1>
+
+    <p class="hero-sub">Brand preference isn't a feeling. It's a path. It moves through identity, connection, and experience. Most brands are strong in one place. Parallel Path helps you find where the gaps are.</p>
+
+    <a href="#assessment" class="hero-cta">
+      Take the assessment
+      <span class="hero-cta-arrow">↓</span>
+    </a>
+
+  </div>
+  <div class="hero-aside-photo">
+    <img src="./photos/20240820_CotopaxiMirrorLake__V3_6786.jpg.webp" alt="">
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STATEMENT
+═══════════════════════════════════════════ -->
+<section class="statement">
+  <div class="statement-inner">
+    <div class="statement-numeral">01</div>
+    <div class="statement-content">
+      <p class="section-eyebrow">The framework</p>
+      <h2 class="statement-headline">Three things have to work together before a customer chooses your brand.</h2>
+      <p class="statement-body">Identity tells them who you are. Connection puts you in front of them at the right moment. Experience makes them choose you again. When one falls short, preference slips — and most brands have at least one gap they haven't named yet.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 02 — Who We're Talking To -->
-  <section id="audience" class="content-section">
-    <div class="section-label">Strategy</div>
-    <div class="section-heading">Who We're Talking To</div>
-    <p>The primary audience is a CMO or VP of Marketing at a healthy living brand who is already spending money on media and wants to know if they're getting the most out of it. They're smart, they're busy, and they're skeptical of agencies that lead with their own credentials.</p>
-    <p>The secondary audience is an existing Parallel Path client who needs to understand that we're capable of a more holistic conversation than the one we've been having. This isn't a pitch to them. It's permission to go deeper.</p>
-    <p><strong>What both audiences need to feel, in order:</strong></p>
-    <ul class="feel-list">
-      <li><span>This agency gets my world.</span></li>
-      <li><span>This framework describes something real I haven't been able to name.</span></li>
-      <li><span>I want to know where I stand.</span></li>
-      <li><span>I want to talk to these people.</span></li>
-    </ul>
+<!-- ═══════════════════════════════════════════
+     FRAMEWORK — Overlapping Forms + Pillars
+═══════════════════════════════════════════ -->
+<section class="framework">
+  <div class="framework-inner">
 
-    <div class="subsection">
-      <div class="subsection-label">A Note on the Word "Reciprocity"</div>
-      <p>I'm still not completely on board with this word, but I don't recommend abandoning it. It earns its place better when it arrives after the concept is already understood, not as the launchpad. Lead with the idea. Introduce the word once people are nodding. The framework name can stay. The word just doesn't need to be the first thing someone reads.</p>
+    <div class="sec-num">02</div>
+
+    <div class="framework-header">
+      <div>
+        <p class="section-eyebrow">Identity. Connection. Experience.</p>
+        <h2 class="framework-headline">Three pillars.<br>One path.</h2>
+      </div>
+      <p class="framework-desc">Once you understand the Parallel Path framework for how consumers develop brand preference, you can optimize each layer to build deeper engagement, stronger experiences, and lasting brand goodness.</p>
     </div>
 
-    <div class="subsection">
-      <div class="subsection-label">On "Health and Wellness"</div>
-      <p>Health and wellness is a category label. A more evocative phrase like "healthy living" reflects human behavior and gives potential clients an opportunity to self-identify. The brands Parallel Path works with are embedded in how people actually live, not just how the industry classifies them. Shift toward "healthy living" language throughout, while keeping the framework specific enough to be credible to category specialists.</p>
+    <!-- Reference image placeholder -->
+    <div class="blob-wrap">
+      <p class="blob-placeholder-label">Graphic direction — placeholder reference</p>
+      <img class="blob-ref-img"
+        src="./photos/kakao-reference.jpg"
+        alt="Infographic direction reference — nested overlapping forms (Kakao AI Ethics style)">
     </div>
-  </section>
 
-  <!-- 03 — The Three Areas -->
-  <section id="three-areas" class="content-section">
-    <div class="section-label">Strategy</div>
-    <div class="section-heading">The Three Areas and How to Show Them</div>
-    <p>The framework's three connectors are right. Dropping the modifiers "Shared," "Intentional," and "Curated" makes each area immediately legible. The nuance those words were trying to convey belongs in body copy, in a video, or spoken in a meeting — not in the headline.</p>
-
-    <div class="areas-block">
-      <div class="area-item">
-        <div class="area-num">01</div>
-        <div class="area-name">Identity</div>
-        <p class="area-desc">Do consumers see themselves in your brand? This is the foundation everything else is built on.</p>
-        <ul class="area-blocks">
+    <!-- Three pillars -->
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Identity</div>
+        <ul class="pillar-items">
           <li>Brand name and positioning</li>
           <li>Visual identity</li>
-          <li>Tone and copywriting</li>
-          <li>Values and community commitments</li>
+          <li>Tone of voice and messaging</li>
+          <li>Competitive differentiation</li>
         </ul>
       </div>
-      <div class="area-item">
-        <div class="area-num">02</div>
-        <div class="area-name">Connection</div>
-        <p class="area-desc">Are you showing up in the right places, at the right moments, with something worth paying attention to?</p>
-        <ul class="area-blocks">
-          <li>Media channel selection</li>
-          <li>Ad spend and placement</li>
-          <li>Brand activations</li>
-          <li>Earned goodwill</li>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Connection</div>
+        <ul class="pillar-items">
+          <li>Media and channel strategy</li>
+          <li>Content and storytelling</li>
+          <li>Partnerships and sponsorships</li>
+          <li>Community and earned attention</li>
         </ul>
       </div>
-      <div class="area-item">
-        <div class="area-num">03</div>
-        <div class="area-name">Experience</div>
-        <p class="area-desc">What happens after someone finds you? Every touchpoint either reinforces the promise or breaks it.</p>
-        <ul class="area-blocks">
-          <li>Product and service quality</li>
-          <li>In-person and digital interactions</li>
-          <li>Customer support</li>
-          <li>Value for money</li>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Experience</div>
+        <ul class="pillar-items">
+          <li>Product and service delivery</li>
+          <li>Customer journey</li>
+          <li>Post-purchase relationship</li>
+          <li>Brand moments that stick</li>
         </ul>
       </div>
     </div>
 
-    <!-- Building blocks graphic -->
-    <div class="img-block">
-      <svg viewBox="0 0 600 155" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-        <rect width="600" height="155" fill="#ffffff"/>
-        <line x1="0" y1="125" x2="600" y2="125" stroke="#e5e5e5" stroke-width="1"/>
-        <rect x="60" y="114" width="80" height="11" fill="#aaaaaa"/>
-        <rect x="60" y="101" width="80" height="11" fill="#aaaaaa"/>
-        <rect x="60" y="88"  width="80" height="11" fill="#aaaaaa"/>
-        <rect x="260" y="106" width="80" height="19" fill="#888888"/>
-        <rect x="260" y="85"  width="80" height="19" fill="#888888"/>
-        <rect x="260" y="64"  width="80" height="19" fill="#888888"/>
-        <rect x="460" y="95" width="80" height="30" fill="#1a1a1a"/>
-        <rect x="460" y="63" width="80" height="30" fill="#1a1a1a"/>
-        <rect x="460" y="31" width="80" height="30" fill="#1a1a1a"/>
-        <text x="100" y="143" font-size="8" fill="#aaaaaa" font-weight="700" letter-spacing="2" text-anchor="middle">IDENTITY</text>
-        <text x="300" y="143" font-size="8" fill="#aaaaaa" font-weight="700" letter-spacing="2" text-anchor="middle">CONNECTION</text>
-        <text x="500" y="143" font-size="8" fill="#aaaaaa" font-weight="700" letter-spacing="2" text-anchor="middle">EXPERIENCE</text>
-      </svg>
-      <div class="img-caption">One visual direction for the core graphic — three stacked bar columns showing Identity, Connection, and Experience building toward full brand health.</div>
+    <!-- Bridge -->
+    <div class="framework-bridge">
+      <button class="framework-bridge-btn" type="button">
+        Read on to see how to put this idea to use for your brand
+        <span style="font-size:18px;line-height:1;">↓</span>
+      </button>
     </div>
 
-    <!-- Infographic mood board -->
-    <div class="img-block">
-      <a href="https://www.figma.com/design/mZMGNXBY3qSX58ga9ulFcp/Parallel-Path-%E2%80%94-Infographic-Visual-Directions?m=auto&t=um9m2Hl11Jxsb83i-6" target="_blank" rel="noopener">
-        <img src="./infographic.png" alt="Infographic visual directions — six approaches for the Brand Reciprocity framework" style="display:block;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-      </a>
-      <div class="img-caption">Six visual directions for the infographic — <a href="https://www.figma.com/design/mZMGNXBY3qSX58ga9ulFcp/Parallel-Path-%E2%80%94-Infographic-Visual-Directions?m=auto&t=um9m2Hl11Jxsb83i-6" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;">Open in Figma ↗</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PHOTO BREAK
+═══════════════════════════════════════════ -->
+<div class="photo-break">
+  <img src="./photos/20240611_AlabamaHills_V3_6368.jpg.webp" alt="">
+  <div class="photo-break-overlay">
+    <div class="photo-break-content">
+      <p class="photo-break-quote">Customers don't remember your media plan. They remember how you made them feel.</p>
+      <p class="photo-break-attr">Brand Reciprocity — Parallel Path</p>
     </div>
-
-  </section>
-
-  <!-- 04 — The Rollout -->
-  <section id="rollout" class="content-section">
-    <div class="section-label">Format — A Brand Campaign, Not a Microsite</div>
-    <div class="section-heading">The Rollout</div>
-    <p>The goal isn't repeat visits to a URL. It's repeated encounters with the idea across the channels where clients and prospects already spend time. The landing page is one touchpoint in a larger campaign.</p>
-
-    <div class="channels">
-      <div class="channel-block">
-        <div class="channel-name">LinkedIn</div>
-        <p class="channel-desc">Where the audience lives. Text posts and short video from John, Amanda, and individual team members. Personal perspectives from practitioners who do this work every day. The agency amplifies. The people are the signal.</p>
-      </div>
-      <div class="channel-block">
-        <div class="channel-name">Email Drip</div>
-        <p class="channel-desc">Triggered by the survey. Short, no-scroll messages. One idea per email. Links to schedule directly with a named person on the team. This is where the relationship starts, not the landing page.</p>
-      </div>
-      <div class="channel-block">
-        <div class="channel-name">Landing Page</div>
-        <p class="channel-desc">One clear entry point. Leads with the perspective, earns the framework, shows the work, makes the ask. One CTA. No downloadable PDF. Everything lives on the page or in the email sequence that follows.</p>
-      </div>
-      <div class="channel-block">
-        <div class="channel-name">Client Presentations</div>
-        <p class="channel-desc">A stripped-back version for in-person meetings. Less copy, more conversation. The infographic lives in the corner of each slide to show where we are in the framework. Amanda and John do the talking.</p>
-      </div>
-      <div class="channel-block">
-        <div class="channel-name">Website Integration</div>
-        <p class="channel-desc">The right long-term move is to bake this into the Parallel Path homepage and overall brand perspective — not keep it siloed on a landing page. This idea should feel like it's part of who the agency is, not a separate product or initiative.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 — Landing Page Outline -->
-  <section id="landing-page" class="content-section">
-    <div class="section-label">Landing Page · Content Outline, Top to Bottom</div>
-    <div class="section-heading">Landing Page Outline</div>
-    <p>Structure and tone guide only — not final copy. Eight sections from hero to CTA.</p>
-
-    <div class="lp-outline-wrap">
-      <div class="lp-outline-eyebrow">Content Outline</div>
-      <div class="lp-item">
-        <div class="lp-item-num">01 · Hero</div>
-        <div class="lp-item-title">The Opening Statement</div>
-        <p class="lp-item-desc">One or two lines. A provocation, not a tagline. Something like: "Healthy living used to live in one place. Now it's everywhere. The brands that win aren't just louder. They're more trusted." One sentence below about Parallel Path — a point of view, not credentials.</p>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">02 · The Perspective</div>
-        <div class="lp-item-title">Why This Moment Is Different</div>
-        <p class="lp-item-desc">Two short paragraphs. The landscape has changed. Healthy living is no longer one category in one channel. We don't think about media in isolation. We never have. These three things — identity, connection, and experience — have to work together. When they do, consumers stop evaluating and start choosing. We call that Brand Reciprocity.</p>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">03 · The Framework</div>
-        <div class="lp-item-title">Identity. Connection. Experience.</div>
-        <p class="lp-item-desc">The core graphic lives here. Introduced simply. Below the graphic, each area gets a short description and its building blocks. One section per area. Enough to understand it, not enough to overwhelm.</p>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">04 · The Survey</div>
-        <div class="lp-item-title">Is Your Brand Healthy?</div>
-        <p class="lp-item-desc">Six questions. Tell us where you feel strong and where you feel the gap. After you submit, we do some research on your brand and start sending you insights specific to your category. No pitch. Just useful things we noticed. If it makes sense to talk, we'll say so. Submits inline. Results go to email. Page doesn't refresh.</p>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">05 · Our Work</div>
-        <div class="lp-item-title">Three Client Examples</div>
-        <p class="lp-item-desc">One per area. Real work, real results. Brand category, the challenge, what we did, one outcome with a number. No brand name required if confidential.</p>
-        <div class="lp-placeholder">Three client examples needed — one for Identity, one for Connection, one for Experience.</div>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">06 · What Happens Next</div>
-        <div class="lp-item-title">A 30-Minute Conversation</div>
-        <p class="lp-item-desc">After you submit, a real person on our team reads your responses, looks up your brand, and sends you something useful. Not a template. Something specific. If a conversation makes sense, we'll offer one. Team photos, names, and LinkedIn links here.</p>
-        <div class="lp-placeholder">Photos and LinkedIn profiles needed — John, Amanda, and one or two others.</div>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">07 · How We Work</div>
-        <div class="lp-item-title">This Is How We Think</div>
-        <p class="lp-item-desc">Brand Reciprocity isn't a product we sell. It's the lens we use with every client. Annual strategies, quarterly check-ins, every media recommendation. The goal is always the same: get to a place where your best customers aren't being persuaded. They're just choosing.</p>
-      </div>
-      <div class="lp-item">
-        <div class="lp-item-num">08 · Footer CTA</div>
-        <div class="lp-item-title">One Ask. One Button.</div>
-        <p class="lp-item-desc">"Ready to see where your brand stands?" Button: Take the survey. Secondary: Schedule a conversation. Nothing else competing for the click.</p>
-      </div>
-    </div>
-  </section>
-
-</div><!-- end .page -->
-
-<!-- ─────────────────────────────────────────
-     FOOTER
-───────────────────────────────────────────── -->
-<div class="doc-footer">
-  Studio Parkside for Parallel Path &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; Draft 1 &nbsp;·&nbsp; Internal working document
+  </div>
 </div>
+
+<!-- ═══════════════════════════════════════════
+     ENDPOINT — Triple Venn
+═══════════════════════════════════════════ -->
+<section class="endpoint">
+  <div class="endpoint-inner">
+
+    <div class="endpoint-text">
+      <div class="sec-num">03</div>
+      <p class="endpoint-eyebrow">The endpoint</p>
+      <h2 class="endpoint-headline">When all three overlap, customers don't just buy. They choose you.</h2>
+      <p class="endpoint-body">Brand reciprocity is what happens when your identity is clear, your connection is consistent, and your experience delivers. Customers feel it — and they come back. That's not loyalty by accident. That's preference by design.</p>
+    </div>
+
+    <div class="venn-wrap">
+      <!-- Triple Venn Diagram SVG -->
+      <svg viewBox="0 0 460 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;">
+        <defs>
+          <radialGradient id="prefGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#5B9A9E" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#5B9A9E" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Circle 1: Identity (top) -->
+        <circle cx="230" cy="165" r="128"
+          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.22)"
+          stroke-width="1.5"/>
+
+        <!-- Circle 2: Connection (bottom-left) -->
+        <circle cx="148" cy="310" r="128"
+          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.22)"
+          stroke-width="1.5"/>
+
+        <!-- Circle 3: Experience (bottom-right) -->
+        <circle cx="312" cy="310" r="128"
+          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.22)"
+          stroke-width="1.5"/>
+
+        <!-- Center glow -->
+        <circle cx="230" cy="262" r="54" fill="url(#prefGrad)"/>
+
+        <!-- Center label: Preference -->
+        <text x="230" y="266"
+          text-anchor="middle"
+          font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+          font-size="13"
+          font-weight="700"
+          letter-spacing="-0.02em"
+          fill="rgba(240,237,232,0.95)">Preference</text>
+
+        <!-- Circle labels -->
+        <text x="230" y="28"
+          text-anchor="middle"
+          font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+          font-size="15"
+          font-weight="700"
+          letter-spacing="-0.02em"
+          fill="rgba(240,237,232,0.72)">Identity</text>
+
+        <text x="75" y="462"
+          text-anchor="middle"
+          font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+          font-size="15"
+          font-weight="700"
+          letter-spacing="-0.02em"
+          fill="rgba(240,237,232,0.72)">Connection</text>
+
+        <text x="385" y="462"
+          text-anchor="middle"
+          font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+          font-size="15"
+          font-weight="700"
+          letter-spacing="-0.02em"
+          fill="rgba(240,237,232,0.72)">Experience</text>
+      </svg>
+    </div>
+
+  </div>
+
+  <div class="endpoint-pill">Customer reciprocity can also be called brand preference. It's the result of successful engagement across every touchpoint, when your brand and your customers are in a mutually beneficial relationship.</div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PULSE REPORT
+═══════════════════════════════════════════ -->
+<section class="pulse">
+  <div class="pulse-inner">
+
+    <div class="pulse-photo">
+      <img src="./photos/CoffeeMoment_5112.jpg.webp" alt="">
+    </div>
+
+    <div class="pulse-content">
+      <div class="sec-num">04</div>
+      <p class="pulse-eyebrow">What you get</p>
+      <h2 class="pulse-headline">Your Pulse Report — a clear picture of where you stand.</h2>
+      <p class="pulse-body">After you complete the assessment, the Parallel Path team reviews your responses and sends you a personalized Pulse Report within 48 hours. No pitch. Just a clear read on where your brand is strong and where there's a gap worth closing.</p>
+
+      <div class="pulse-item">
+        <div class="pulse-dot"></div>
+        <p class="pulse-item-text">A score across all three dimensions — identity, connection, and experience</p>
+      </div>
+      <div class="pulse-item">
+        <div class="pulse-dot"></div>
+        <p class="pulse-item-text">Specific observations about where your brand is leaving preference on the table</p>
+      </div>
+      <div class="pulse-item">
+        <div class="pulse-dot"></div>
+        <p class="pulse-item-text">An invitation to continue the conversation — on your terms, at your pace</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ASSESSMENT
+═══════════════════════════════════════════ -->
+<section class="assessment" id="assessment">
+  <div class="assessment-inner">
+
+    <div class="sec-num">05</div>
+    <p class="assessment-eyebrow">Brand Reciprocity Assessment</p>
+    <h2 class="assessment-headline">Find out where your brand stands.</h2>
+    <p class="assessment-sub">Six questions. Three minutes. You'll receive a personalized Pulse Report from the Parallel Path team within 48 hours. After that, you can choose to receive ongoing category research and insights from our team.</p>
+
+    <!-- Q1 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">01 —</span>Where does your brand feel most confident right now?</p>
+      <div class="options" data-q="q1">
+        <label class="option-label"><input type="radio" name="q1" value="identity"> Identity — who we are and what we stand for</label>
+        <label class="option-label"><input type="radio" name="q1" value="connection"> Connection — how we reach and engage people</label>
+        <label class="option-label"><input type="radio" name="q1" value="experience"> Experience — what people feel when they interact with us</label>
+        <label class="option-label"><input type="radio" name="q1" value="unsure"> Still figuring that out</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">02 —</span>Where do you feel the biggest gap?</p>
+      <div class="options" data-q="q2">
+        <label class="option-label"><input type="radio" name="q2" value="identity"> Identity</label>
+        <label class="option-label"><input type="radio" name="q2" value="connection"> Connection</label>
+        <label class="option-label"><input type="radio" name="q2" value="experience"> Experience</label>
+        <label class="option-label"><input type="radio" name="q2" value="unsure"> Hard to say</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">03 —</span>Do you have a media partner helping with connection and distribution?</p>
+      <div class="options" data-q="q3">
+        <label class="option-label"><input type="radio" name="q3" value="yes-happy"> Yes, and we're happy with the relationship</label>
+        <label class="option-label"><input type="radio" name="q3" value="yes-open"> Yes, but open to something better</label>
+        <label class="option-label"><input type="radio" name="q3" value="no-inhouse"> No — we handle it in-house</label>
+        <label class="option-label"><input type="radio" name="q3" value="no-list"> No — it's on the list</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q4 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">04 —</span>How does your leadership think about brand investment right now?</p>
+      <div class="options" data-q="q4">
+        <label class="option-label"><input type="radio" name="q4" value="priority"> Top priority — we're actively investing</label>
+        <label class="option-label"><input type="radio" name="q4" value="roadmap"> It's on the roadmap</label>
+        <label class="option-label"><input type="radio" name="q4" value="sellthrough"> It's a hard internal sell</label>
+        <label class="option-label"><input type="radio" name="q4" value="performance"> Performance comes first — brand is secondary</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q5 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">05 —</span>What matters most to your brand in the next 12 months?</p>
+      <div class="options" data-q="q5">
+        <label class="option-label"><input type="radio" name="q5" value="awareness"> Building awareness in new markets</label>
+        <label class="option-label"><input type="radio" name="q5" value="loyalty"> Deepening loyalty with existing customers</label>
+        <label class="option-label"><input type="radio" name="q5" value="category"> Owning a category or moment</label>
+        <label class="option-label"><input type="radio" name="q5" value="clarity"> Getting clearer on who we are</label>
+        <label class="option-label"><input type="radio" name="q5" value="cx"> Improving the customer experience end-to-end</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q6 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">06 —</span>Would a 30-minute conversation with the Parallel Path team be useful?</p>
+      <div class="options" data-q="q6">
+        <label class="option-label"><input type="radio" name="q6" value="yes"> Yes — please reach out</label>
+        <label class="option-label"><input type="radio" name="q6" value="maybe"> Maybe — send the report first</label>
+        <label class="option-label"><input type="radio" name="q6" value="no"> Not right now</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Contact fields -->
+    <div class="contact-section">
+      <p class="contact-headline">Where should we send your Pulse Report?</p>
+      <div class="contact-fields">
+        <div class="field-wrap">
+          <label class="field-label" for="fname">First name</label>
+          <input class="field-input" id="fname" type="text" placeholder="Amanda">
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="lname">Last name</label>
+          <input class="field-input" id="lname" type="text" placeholder="Williams">
+        </div>
+      </div>
+      <div class="contact-full">
+        <div class="field-wrap">
+          <label class="field-label" for="email">Work email</label>
+          <input class="field-input" id="email" type="email" placeholder="you@yourbrand.com">
+        </div>
+      </div>
+      <div class="contact-full">
+        <div class="field-wrap">
+          <label class="field-label" for="company">Brand or company</label>
+          <input class="field-input" id="company" type="text" placeholder="Your brand name">
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-area">
+      <button class="submit-btn" type="button" onclick="handleSubmit()">
+        Get your Pulse Report
+        <span style="font-size:18px;line-height:1;">→</span>
+      </button>
+      <p class="submit-note">We'll review your answers and follow up within 48 hours. No spam, no pitch decks.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg id="fl" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 742 415.4">
+  <g>
+    <path d="M19.3,162.2v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H0v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+    <path d="M201.1,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM180.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M265.5,167.1v-51.1c0-8.4-1.9-13-16.5-14.4v-6.5c16.5-2.6,32-6.3,47.6-13.5l4.6,4.4-4.2,28.3h7c8.1-20.9,16.5-32.7,30.4-32.7s5.8.5,9.1,1.9v30.4c-5.6-2.8-10.9-3.5-15.3-3.5-20.9,0-29,16.7-29,32.5v24.1c0,10.2,5.6,11.4,17.2,13.5v7h-67.3v-7c10.9-2.1,16.5-3.3,16.5-13.5Z" fill="#fff"/>
+    <path d="M408.2,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM387.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M470.5,167.1v-80.7c0-8.4.2-41-17-42.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v138.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M534.1,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M577.3,136.9c0-34.1,26.5-53.6,55.7-53.6s53.4,28.8,43.9,51.6h-65.5c3,22.5,17,36.2,37.2,36.2s20-3.7,24.6-9.8l4.9,3.9c-6,14.9-23.2,23.9-45,23.9-32.3,0-55.7-20.2-55.7-52.2ZM645.8,125.3c3-16.3-1.6-32.5-15.3-32.5s-19.7,10.2-19.7,32v.5h35.1Z" fill="#fff"/>
+    <path d="M691.4,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M240.9,336c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM220.4,339c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M297.5,334.8v-71.3h-17.6v-9.3c15.8-5.8,30.7-14.9,42.5-25.8h8.8v23.9l27.9-2.6c-.5,5.1-.7,8.6-.7,13.7h-27.2v61.8c0,8.8,3,12.1,9.3,12.1s15.1-1.9,20.7-3.7v8.4c-9.5,3.7-26.5,9.1-39.7,13-14.2,0-23.9-11.4-23.9-20.2Z" fill="#fff"/>
+    <path d="M444.6,332.3v-44.6c0-16-5.6-20.7-13.7-20.7s-12.1,1.9-20.2,11.6v53.6c0,10.2,4.6,11.4,12.8,13.5v7h-63.4v-7c12.1-2.1,17-3.3,17-13.5v-104.7c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v71.1c10-10.9,20-20.2,37.4-20.2,24.8,0,30.2,19.7,30.2,35.8v48.1c0,10.2,4.6,11.4,15.3,13.5v7h-61.8v-7c8.1-2.1,12.8-3.3,12.8-13.5Z" fill="#fff"/>
+    <path d="M59,327.1v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H39.7v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+  </g>
+  <g>
+    <path d="M41.6,388.4h18.9v5h-12.5v6.4h8.9v5h-8.9v10h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M65.3,401.6c0-8.2,5.5-13.8,13.6-13.8s13.3,5.6,13.3,13.8-5.5,13.8-13.6,13.8-13.3-5.6-13.3-13.8ZM85.6,401.8v-.5c0-5.3-2.4-8.4-6.8-8.4s-6.8,3-6.8,8.4v.5c0,5.3,2.5,8.4,6.8,8.4s6.8-3,6.8-8.4Z" fill="#fff"/>
+    <path d="M99.2,388.4h10.6c8.1,0,10.8,3,10.8,7.2s-2.4,6.3-6.4,7.1c4.2,1,6,4.1,6.7,10,0,.5.2,1.7.2,2.1h-6.6s0-.9,0-1.2c-.6-5.1-2.2-8.3-6.6-8.4h-2.4v9.6h-6.3v-26.4ZM108.9,401.2c3.9,0,5.5-2.3,5.5-4.6s-1.5-3.8-5.2-3.8h-3.7v8.5l3.3-.2Z" fill="#fff"/>
+    <path d="M140.3,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M171.3,388.4h19.8v4.9h-13.5v5.6h8.6v4.9h-8.6v6h13.9v5h-20.2v-26.4Z" fill="#fff"/>
+    <path d="M206.6,388.4h7.1l9.3,26.4h-6.7l-2.3-6.6h-9.1l-2.3,6.6h-5.7l9.7-26.4ZM212.8,403.8l-3.1-9.1-3.3,9.1h6.3Z" fill="#fff"/>
+    <path d="M229,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M256.1,393.4h-7.6v-5h21.5v5h-7.5v21.4h-6.4v-21.4Z" fill="#fff"/>
+    <path d="M276.1,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M314,403.1l-9.2-14.7h7.2l5.7,9.8,5.7-9.8h6.3l-9.3,14.9v11.5h-6.4v-11.7Z" fill="#fff"/>
+    <path d="M347.6,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M371.6,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M383.9,388.4h6.7l6.5,19.2,6.2-19.2h5.7l-9.3,26.4h-6.5l-9.3-26.4Z" fill="#fff"/>
+    <path d="M414.9,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M429.5,388.4h7.1l10.7,16.5v-16.5h5.4v26.4h-6.1l-11.8-18.2v18.2h-5.4v-26.4Z" fill="#fff"/>
+    <path d="M459.9,402.1c0-8.8,5.2-14.2,13.1-14.2s10.8,3.6,11.7,9.6h-6.2c-.5-2.9-2.4-4.4-5.4-4.4s-6.6,3.2-6.6,8.8v.5c0,5.2,2.5,8.1,6.7,8.1s5.3-1.7,5.6-4.6h-5.2v-4.5h11.3v13.4h-5.6v-3.4c-1.4,2.5-3.9,4-7.5,4-7.2,0-11.8-5.2-11.8-13.3Z" fill="#fff"/>
+  </g>
+</svg>
+    </div>
+    <div class="footer-right">
+      <a class="footer-link" href="https://parallelpath.com">parallelpath.com</a>
+      <p class="footer-copy">© 2026 Parallel Path. Brand Reciprocity.</p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-cards -->
+
+<script>
+// Option pill selection
+document.querySelectorAll('.options').forEach(function(group) {
+  group.querySelectorAll('.option-label').forEach(function(label) {
+    label.addEventListener('click', function() {
+      var q = group.getAttribute('data-q');
+      group.querySelectorAll('.option-label').forEach(function(l) {
+        l.classList.remove('selected');
+      });
+      this.classList.add('selected');
+    });
+  });
+});
+
+// Submit handler (placeholder — wire to actual backend)
+function handleSubmit() {
+  var fname = document.getElementById('fname').value.trim();
+  var email = document.getElementById('email').value.trim();
+  if (!fname || !email) {
+    alert('Please enter your name and email so we can send your Pulse Report.');
+    return;
+  }
+  // TODO: connect to form handler / CRM
+  var btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Sent — watch your inbox.';
+  btn.style.background = '#3C6E71';
+  btn.style.cursor = 'default';
+}
+</script>
+
 
 </body>
 </html>
