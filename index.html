@@ -153,6 +153,11 @@ body {
   margin-bottom: 40px;
   letter-spacing: -0.02em;
 }
+.hero-sub-bold {
+  display: block;
+  font-weight: 600;
+  margin: 0.15em 0;
+}
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -258,7 +263,8 @@ body {
 }
 
 /* ── Scroll Reveal ── */
-.reveal {
+/* Default: fully visible. JS adds .anim-ready to <html> to enable animations. */
+.anim-ready .reveal {
   opacity: 0;
   filter: blur(14px);
   transform: translateY(24px);
@@ -266,19 +272,19 @@ body {
               filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.is-visible {
+.anim-ready .reveal.is-visible {
   opacity: 1;
   filter: blur(0);
   transform: translateY(0);
 }
 /* ── Horizontal swipe reveal ── */
-.reveal-swipe {
+.anim-ready .reveal-swipe {
   clip-path: inset(0 100% 0 0);
   filter: blur(12px);
   transition: clip-path 1.9s cubic-bezier(0.16, 1, 0.3, 1),
               filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal-swipe.is-visible {
+.anim-ready .reveal-swipe.is-visible {
   clip-path: inset(0 0% 0 0);
   filter: blur(0);
 }
@@ -415,10 +421,10 @@ body {
   margin-bottom: 56px;
 }
 .endpoint-lower {
-  display: grid;
-  grid-template-columns: 1fr 54%;
-  gap: 64px;
-  align-items: center;
+  position: relative;
+  display: block;
+  padding-top: 220px;
+  padding-bottom: 340px;
 }
 .endpoint-eyebrow {
   font-family: var(--sans);
@@ -437,23 +443,32 @@ body {
   margin-bottom: 0;
 }
 .endpoint-body {
-  font-size: 18px;
-  line-height: 1.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  font-size: 22px;
+  line-height: 1.55;
   color: rgba(240,237,232,0.6);
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  z-index: 2;
 }
 .endpoint-pill {
-  display: block;
-  margin: 56px 40px 0;
-  padding: 36px 60px 44px;
+  position: absolute;
+  bottom: 64px;
+  right: 0;
+  max-width: 340px;
+  margin: 0;
+  padding: 24px 32px 28px;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   font-family: var(--sans);
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 400;
-  letter-spacing: -0.02em;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.62;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  z-index: 2;
 }
 .framework-bridge {
   display: flex;
@@ -971,7 +986,9 @@ body {
   .photo-break-overlay { padding: 0 28px; }
 
   .endpoint { padding: 80px 0; }
-  .endpoint-lower { grid-template-columns: 1fr; }
+  .endpoint-lower { padding-bottom: 0; }
+  .endpoint-body { position: static; max-width: 100%; font-size: 18px; margin-bottom: 28px; }
+  .endpoint-pill { position: static; max-width: 100%; margin-top: 28px; }
   .endpoint-headline { font-size: 34px; }
 
   .pulse { padding: 72px 0; }
@@ -1037,7 +1054,7 @@ body {
 </svg>
     </div>
 
-    <h1 class="hero-headline">The brands people choose aren't lucky. They're built.</h1>
+    <h1 class="hero-headline">The brands people choose aren’t lucky. They’re built.</h1>
 
   </div>
   <div class="hero-glass"></div>
@@ -1048,7 +1065,7 @@ body {
 
 <section class="hero-below">
   <div class="hero-below-inner">
-    <p class="hero-sub">Brand preference isn't a feeling. It's a path. It moves through identity, connection, and experience. Most brands are strong in one place. Parallel Path helps you find where the gaps are.</p>
+    <p class="hero-sub">Think about the relationships you keep choosing, with friends, mentors, the brands you actually trust. They work because both sides get something real out of them. <span class="hero-sub-bold">That's reciprocity.</span> And it's exactly how lasting brand preference is built. Parallel Path shows you where your brand is delivering that exchange. And where it isn't.</p>
     <a href="#assessment" class="hero-cta">
       Take the assessment
       <span class="hero-cta-arrow">↓</span>
@@ -1065,7 +1082,7 @@ body {
     <div class="statement-content">
       <p class="section-eyebrow">The framework</p>
       <h2 class="statement-headline">Three things have to work together before a customer chooses your brand.</h2>
-      <p class="statement-body">Identity tells them who you are. Connection puts you in front of them at the right moment. Experience makes them choose you again. When one falls short, preference slips — and most brands have at least one gap they haven't named yet.</p>
+      <p class="statement-body">Identity tells them who you are and whether you're for them. Connection puts you in front of them at the right moment — with something worth their attention. Experience delivers on what you've promised. When one falls short, the exchange breaks down and preference slips. Most brands have at least one gap they haven't named yet.</p>
     </div>
   </div>
 </section>
@@ -1195,7 +1212,7 @@ body {
 
     <div class="venn-wrap reveal">
       <!-- Diagram 2: Overlapping brand pillars -->
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 215.1 172.1" style="width:100%;min-width:320px;max-width:520px;display:block;">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 215.1 172.1" style="width:100%;min-width:320px;max-width:660px;display:block;">
         <defs>
           <radialGradient id="d2-rg" cx="154.7" cy="68.2" fx="154.7" fy="68.2" r="58.2" gradientTransform="translate(-30.7 9) rotate(.4) scale(.9 .8) skewX(0)" gradientUnits="userSpaceOnUse">
             <stop offset=".2" stop-color="#fff" stop-opacity="0"/>
@@ -1232,10 +1249,10 @@ body {
       </svg>
     </div>
 
+      <div class="endpoint-pill">Customer reciprocity can also be called brand preference. It's the result of successful engagement across every touchpoint, when your brand and your customers are in a mutually beneficial relationship.</div>
+
     </div><!-- /endpoint-lower -->
   </div><!-- /endpoint-inner -->
-
-  <div class="endpoint-pill">Customer reciprocity can also be called brand preference. It's the result of successful engagement across every touchpoint, when your brand and your customers are in a mutually beneficial relationship.</div>
 
   <!-- ── Pillar deep-dives ── -->
   <div class="pillar-divider"></div>
@@ -1567,6 +1584,9 @@ function handleSubmit() {
 
 <script>
 (function() {
+  // Enable animations only once JS is confirmed running
+  document.documentElement.classList.add('anim-ready');
+
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -1574,10 +1594,20 @@ function handleSubmit() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
 
   document.querySelectorAll('.reveal, .reveal-swipe').forEach(function(el) {
     observer.observe(el);
+  });
+
+  // Fallback: on load, reveal anything already in or near the viewport
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.reveal:not(.is-visible), .reveal-swipe:not(.is-visible)').forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 300) {
+        el.classList.add('is-visible');
+      }
+    });
   });
 })();
 </script>
