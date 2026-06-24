@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Reciprocity — Parallel Path</title>
+<link rel="stylesheet" href="https://use.typekit.net/gvx8xdo.css">
+<style>
+
+/* ─────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────── */
+:root {
+  --sans:  'halyard-display', 'halyard-text', system-ui, sans-serif;
+  --mono:  'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  --bg:    #ffffff;
+  --ink:   #1a1a1a;
+  --body:  #5c5c5c;
+  --mid:   #888888;
+  --light: #aaaaaa;
+  --rule:  #e5e5e5;
+  --teal:   #3C6E71;
+  --cadet:  #233D4D;
+  --coral:  #E1885E;
+  --spring: #C6EB4C;
+  --sand:   #D0A684;
+  --dark:   #1a1a18;
+  --warm:   #f4f2ef;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--body);
+  background: #e3e0db;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+.page-cards {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero,
+.statement,
+.framework,
+.photo-break,
+.endpoint,
+.pulse,
+.assessment,
+.site-footer {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────── */
+.hero {
+  background: transparent;
+  padding: 0;
+  min-height: 92vh;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+.hero-inner {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 72px 0;
+  position: relative;
+  z-index: 2;
+}
+.hero-glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 62%;
+  height: 100%;
+  background: rgba(10, 15, 20, 0.42);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  z-index: 1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, black 52%, transparent 90%);
+  mask-image: linear-gradient(to right, black 52%, transparent 90%);
+}
+.hero-aside-photo {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.hero-aside-photo::before { display: none; }
+.hero-aside-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 1;
+  display: block;
+}
+.hero-logo {
+  margin-bottom: 56px;
+}
+.hero-logo svg {
+  width: 160px;
+  height: auto;
+  display: block;
+  fill: #ffffff;
+  opacity: 1;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 28px;
+}
+.hero-headline {
+  font-size: clamp(56px, 9vw, 132px);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  max-width: 16ch;
+  margin-bottom: 0;
+}
+.hero-below {
+  padding: 56px 0 72px;
+  background: var(--spring);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.hero-below-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.hero-sub {
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1.45;
+  color: var(--cadet);
+  font-weight: 350;
+  max-width: 38ch;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+.hero-sub-bold {
+  display: block;
+  font-weight: 600;
+  margin: 0.15em 0;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(240,237,232,0.96);
+  text-decoration: none;
+  background: var(--cadet);
+  border: none;
+  padding: 16px 28px;
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+.hero-cta:hover {
+  background: #1a2e3a;
+}
+.hero-cta-arrow { font-size: 18px; line-height: 1; }
+
+/* ─────────────────────────────────────────────
+   STATEMENT — "3 things"
+───────────────────────────────────────────── */
+.statement {
+  background: var(--bg);
+  padding: 128px 0 120px;
+}
+.statement-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.statement-numeral {
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  color: #f0ede8;
+  user-select: none;
+  margin-top: -16px;
+}
+.statement-content {}
+.section-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--coral);
+  margin-bottom: 20px;
+}
+.statement-headline {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--cadet);
+  margin-bottom: 32px;
+  max-width: 22ch;
+}
+.statement-body {
+  font-size: 19px;
+  line-height: 1.8;
+  color: var(--body);
+  max-width: 52ch;
+}
+.statement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  max-width: 52ch;
+}
+.statement-list li {
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--body);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(26,26,24,0.1);
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+.statement-list li:first-child { border-top: 1px solid rgba(26,26,24,0.1); }
+.statement-list-label {
+  font-weight: 600;
+  color: var(--cadet);
+  min-width: 9ch;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   FRAMEWORK
+───────────────────────────────────────────── */
+.framework {
+  background: var(--warm);
+  padding: 112px 0 120px;
+}
+.framework-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
+.framework-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+.framework-headline {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--cadet);
+}
+.framework-desc {
+  font-size: 18px;
+  line-height: 1.78;
+  color: var(--body);
+  max-width: 44ch;
+}
+
+/* ── Scroll Reveal ── */
+/* Default: fully visible. JS adds .anim-ready to <html> to enable animations. */
+.anim-ready .reveal {
+  opacity: 0;
+  filter: blur(14px);
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-ready .reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+/* ── Horizontal swipe reveal ── */
+.anim-ready .reveal-swipe {
+  clip-path: inset(0 100% 0 0);
+  filter: blur(12px);
+  transition: clip-path 1.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-ready .reveal-swipe.is-visible {
+  clip-path: inset(0 0% 0 0);
+  filter: blur(0);
+}
+
+/* ── Reference Image Placeholder ── */
+.blob-wrap {
+  margin-bottom: 56px;
+}
+.blob-placeholder-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--light);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.blob-placeholder-label::before,
+.blob-placeholder-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.blob-ref-img {
+  width: 100%;
+  max-width: 760px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── Pillars Grid ── */
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: #dddbd8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.pillar {
+  background: var(--bg);
+  padding: 44px 40px 48px;
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--sand);
+  margin-bottom: 14px;
+}
+.pillar-name {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--cadet);
+  margin-bottom: 32px;
+}
+.pillar-items {
+  list-style: none;
+}
+.pillar-items li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: -0.01em;
+}
+.pillar-items li:last-child { border-bottom: none; }
+
+/* ─────────────────────────────────────────────
+   PHOTO BREAK
+───────────────────────────────────────────── */
+.photo-break {
+  position: relative;
+  height: 64vh;
+  min-height: 440px;
+  overflow: hidden;
+}
+.photo-break img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+.photo-break-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26,26,24,0.82) 40%, rgba(26,26,24,0.4) 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 72px;
+}
+.photo-break-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 100%;
+}
+.photo-break-quote {
+  font-size: clamp(30px, 3.8vw, 54px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--spring);
+  max-width: 18ch;
+}
+.photo-break-attr {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: rgba(240,237,232,0.38);
+  margin-top: 24px;
+}
+
+/* ─────────────────────────────────────────────
+   ENDPOINT — Venn
+───────────────────────────────────────────── */
+.endpoint {
+  background: var(--cadet);
+  padding: 120px 0 128px;
+}
+.endpoint-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
+.endpoint-header {
+  margin-bottom: 56px;
+}
+.endpoint-lower {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 56px 0 96px;
+}
+.endpoint-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--spring);
+  margin-bottom: 20px;
+}
+.endpoint-headline {
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: rgba(240,237,232,0.96);
+  margin-bottom: 0;
+}
+.endpoint-body {
+  font-size: 22px;
+  line-height: 1.55;
+  color: rgba(240,237,232,0.6);
+  margin: 0;
+}
+.endpoint-pill {
+  margin: 0;
+  padding: 24px 32px 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.framework-bridge {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+.framework-bridge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--body);
+  text-decoration: none;
+  border: 1.5px solid #dddbd8;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background: var(--bg);
+  transition: border-color 0.15s, color 0.15s;
+  cursor: default;
+}
+.framework-bridge-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.venn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 48px 0 0;
+}
+.sec-num {
+  font-size: 108px;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  user-select: none;
+  color: rgba(26,26,24,0.06);
+  margin-bottom: 4px;
+}
+.endpoint .sec-num { color: rgba(255,255,255,0.07); }
+
+/* ─────────────────────────────────────────────
+   PILLAR DEEP-DIVE SECTIONS
+───────────────────────────────────────────── */
+.pillar-deep {
+  padding: 80px 0;
+}
+.pillar-divider {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.pillar-deep-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.pillar-deep--reverse .pillar-deep-inner {
+  direction: rtl;
+}
+.pillar-deep--reverse .pillar-deep-content {
+  direction: ltr;
+}
+.pillar-deep-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  direction: ltr;
+}
+.pillar-deep-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pillar-deep-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--spring);
+  margin-bottom: 20px;
+}
+.pillar-deep-headline {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: rgba(240,237,232,0.96);
+  margin-bottom: 20px;
+}
+.pillar-deep-body {
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(240,237,232,0.58);
+  margin-bottom: 40px;
+  max-width: 44ch;
+}
+.case-study-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 24px 28px;
+  background: rgba(255,255,255,0.06);
+}
+.case-study-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  margin-bottom: 18px;
+  filter: invert(1) brightness(2) opacity(0.5);
+}
+.case-study-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 10px;
+}
+.case-study-client {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(240,237,232,0.9);
+  margin-bottom: 8px;
+}
+.case-study-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(240,237,232,0.52);
+  margin-bottom: 20px;
+}
+.case-study-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E1885E;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding: 9px 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  cursor: default;
+}
+
+/* ─────────────────────────────────────────────
+   PULSE REPORT CALLOUT
+───────────────────────────────────────────── */
+.pulse {
+  background: var(--bg);
+  padding: 96px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pulse-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+.pulse-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+.pulse-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.pulse-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--coral);
+  margin-bottom: 20px;
+}
+.pulse-headline {
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--cadet);
+  margin-bottom: 24px;
+}
+.pulse-body {
+  font-size: 17px;
+  line-height: 1.82;
+  color: var(--body);
+  margin-bottom: 36px;
+}
+.pulse-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.pulse-item-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+/* ─────────────────────────────────────────────
+   ASSESSMENT
+───────────────────────────────────────────── */
+.assessment {
+  background: var(--warm);
+  padding: 120px 0 140px;
+}
+.assessment-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
+.assessment-eyebrow {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--coral);
+  margin-bottom: 20px;
+}
+.assessment-headline {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--cadet);
+  margin-bottom: 20px;
+}
+.assessment-sub {
+  font-size: 18px;
+  line-height: 1.72;
+  color: var(--body);
+  margin-bottom: 72px;
+}
+.question-block {
+  margin-bottom: 56px;
+}
+.question-divider {
+  height: 1px;
+  background: #dddbd8;
+  margin-bottom: 56px;
+}
+.question-text {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--cadet);
+  margin-bottom: 24px;
+  line-height: 1.35;
+}
+.question-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sand);
+  letter-spacing: 0.3px;
+  margin-right: 10px;
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 11px 22px;
+  border: 1.5px solid #dddbd8;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--body);
+  letter-spacing: -0.01em;
+  background: var(--bg);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+.option-label:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.option-label input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.option-label.selected {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #fff;
+}
+
+/* Contact fields */
+.contact-section {
+  margin-bottom: 40px;
+}
+.contact-headline {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--cadet);
+  margin-bottom: 24px;
+  line-height: 1.35;
+}
+.contact-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.contact-full {
+  margin-bottom: 14px;
+}
+.field-wrap {}
+.field-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--mid);
+  margin-bottom: 8px;
+}
+.field-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid #dddbd8;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--bg);
+  outline: none;
+  letter-spacing: -0.01em;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+.field-input:focus { border-color: var(--teal); }
+.field-input::placeholder { color: var(--light); }
+
+.submit-area {
+  margin-top: 48px;
+}
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--coral);
+  color: rgba(255,255,255,0.96);
+  border: none;
+  padding: 18px 38px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.submit-btn:hover { background: #d4754a; }
+.submit-note {
+  font-size: 13px;
+  color: var(--light);
+  margin-top: 16px;
+  letter-spacing: 0;
+}
+
+/* ─────────────────────────────────────────────
+   SHOWCASE
+───────────────────────────────────────────── */
+.showcase {
+  padding: 120px 72px 140px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.showcase-divider {
+  height: 1px;
+  background: rgba(26,26,24,0.12);
+  margin-bottom: 80px;
+}
+.showcase-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--body);
+}
+.showcase-arrow {
+  font-size: 16px;
+  color: var(--coral);
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.showcase-thumb {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--warm);
+}
+.showcase-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+.site-footer {
+  background: var(--cadet);
+  padding: 60px 0;
+}
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo svg {
+  width: 140px;
+  height: auto;
+  display: block;
+  opacity: 0.38;
+}
+.footer-right {
+  text-align: right;
+}
+.footer-link {
+  font-size: 14px;
+  color: rgba(240,237,232,0.4);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px;
+}
+.footer-link:hover { color: rgba(240,237,232,0.65); }
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: rgba(240,237,232,0.2);
+  margin-top: 8px;
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .hero-inner,
+  .statement-inner,
+  .framework-inner,
+  .endpoint-inner,
+  .pulse-inner,
+  .footer-inner { padding: 0 28px; }
+  .assessment-inner { padding: 0 28px; }
+
+  .hero { padding: 56px 0 72px; }
+  .hero-logo { margin-bottom: 52px; }
+  .hero-aside-photo { display: none; }
+  .sec-num { font-size: 64px; }
+
+  .statement { padding: 80px 0; }
+  .statement-inner { grid-template-columns: 1fr; gap: 0; }
+  .statement-numeral { font-size: 96px; margin-bottom: 8px; }
+  .statement-headline { font-size: 34px; }
+  .statement-body { font-size: 17px; }
+
+  .framework { padding: 80px 0; }
+  .framework-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 48px; }
+  .framework-headline { font-size: 40px; }
+  .blob-wrap { display: none; } /* hide on mobile — pillars tell the story */
+  /* iOS Safari clip-path bug fallback: use opacity reveal instead of swipe */
+  .anim-ready .reveal-swipe {
+    clip-path: none;
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .anim-ready .reveal-swipe.is-visible {
+    clip-path: none;
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+  .pillars { grid-template-columns: 1fr; }
+
+  .pillar-deep { padding: 64px 0; }
+  .pillar-deep-inner { grid-template-columns: 1fr; gap: 36px; padding: 0 28px; }
+  .pillar-deep--reverse .pillar-deep-inner { direction: ltr; }
+  .pillar-deep-photo { aspect-ratio: 3/2; }
+
+  .photo-break { height: 50vh; }
+  .photo-break-overlay { padding: 0 28px; }
+
+  .endpoint { padding: 80px 0; }
+  .endpoint-lower { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 0; }
+  .endpoint-body { font-size: 18px; }
+  .endpoint-pill { max-width: 100%; }
+  .endpoint-headline { font-size: 34px; }
+
+  .pulse { padding: 72px 0; }
+  .pulse-inner { grid-template-columns: 1fr; }
+  .pulse-photo { display: none; }
+  .pulse-headline { font-size: 30px; }
+
+  .assessment { padding: 80px 0 100px; }
+  .assessment-headline { font-size: 42px; }
+  .assessment-sub { margin-bottom: 48px; }
+  .contact-fields { grid-template-columns: 1fr; }
+
+  .site-footer { padding: 48px 0; }
+  .footer-inner { flex-direction: column; gap: 28px; }
+  .footer-right { text-align: center; }
+}
+
+</style>
+</head>
+<body>
+<div class="page-cards">
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-logo">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 742 415.4">
+  <g>
+    <path d="M19.3,162.2v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H0v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+    <path d="M201.1,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM180.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M265.5,167.1v-51.1c0-8.4-1.9-13-16.5-14.4v-6.5c16.5-2.6,32-6.3,47.6-13.5l4.6,4.4-4.2,28.3h7c8.1-20.9,16.5-32.7,30.4-32.7s5.8.5,9.1,1.9v30.4c-5.6-2.8-10.9-3.5-15.3-3.5-20.9,0-29,16.7-29,32.5v24.1c0,10.2,5.6,11.4,17.2,13.5v7h-67.3v-7c10.9-2.1,16.5-3.3,16.5-13.5Z" fill="#fff"/>
+    <path d="M408.2,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM387.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M470.5,167.1v-80.7c0-8.4.2-41-17-42.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v138.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M534.1,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M577.3,136.9c0-34.1,26.5-53.6,55.7-53.6s53.4,28.8,43.9,51.6h-65.5c3,22.5,17,36.2,37.2,36.2s20-3.7,24.6-9.8l4.9,3.9c-6,14.9-23.2,23.9-45,23.9-32.3,0-55.7-20.2-55.7-52.2ZM645.8,125.3c3-16.3-1.6-32.5-15.3-32.5s-19.7,10.2-19.7,32v.5h35.1Z" fill="#fff"/>
+    <path d="M691.4,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M240.9,336c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM220.4,339c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M297.5,334.8v-71.3h-17.6v-9.3c15.8-5.8,30.7-14.9,42.5-25.8h8.8v23.9l27.9-2.6c-.5,5.1-.7,8.6-.7,13.7h-27.2v61.8c0,8.8,3,12.1,9.3,12.1s15.1-1.9,20.7-3.7v8.4c-9.5,3.7-26.5,9.1-39.7,13-14.2,0-23.9-11.4-23.9-20.2Z" fill="#fff"/>
+    <path d="M444.6,332.3v-44.6c0-16-5.6-20.7-13.7-20.7s-12.1,1.9-20.2,11.6v53.6c0,10.2,4.6,11.4,12.8,13.5v7h-63.4v-7c12.1-2.1,17-3.3,17-13.5v-104.7c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v71.1c10-10.9,20-20.2,37.4-20.2,24.8,0,30.2,19.7,30.2,35.8v48.1c0,10.2,4.6,11.4,15.3,13.5v7h-61.8v-7c8.1-2.1,12.8-3.3,12.8-13.5Z" fill="#fff"/>
+    <path d="M59,327.1v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H39.7v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+  </g>
+  <g>
+    <path d="M41.6,388.4h18.9v5h-12.5v6.4h8.9v5h-8.9v10h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M65.3,401.6c0-8.2,5.5-13.8,13.6-13.8s13.3,5.6,13.3,13.8-5.5,13.8-13.6,13.8-13.3-5.6-13.3-13.8ZM85.6,401.8v-.5c0-5.3-2.4-8.4-6.8-8.4s-6.8,3-6.8,8.4v.5c0,5.3,2.5,8.4,6.8,8.4s6.8-3,6.8-8.4Z" fill="#fff"/>
+    <path d="M99.2,388.4h10.6c8.1,0,10.8,3,10.8,7.2s-2.4,6.3-6.4,7.1c4.2,1,6,4.1,6.7,10,0,.5.2,1.7.2,2.1h-6.6s0-.9,0-1.2c-.6-5.1-2.2-8.3-6.6-8.4h-2.4v9.6h-6.3v-26.4ZM108.9,401.2c3.9,0,5.5-2.3,5.5-4.6s-1.5-3.8-5.2-3.8h-3.7v8.5l3.3-.2Z" fill="#fff"/>
+    <path d="M140.3,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M171.3,388.4h19.8v4.9h-13.5v5.6h8.6v4.9h-8.6v6h13.9v5h-20.2v-26.4Z" fill="#fff"/>
+    <path d="M206.6,388.4h7.1l9.3,26.4h-6.7l-2.3-6.6h-9.1l-2.3,6.6h-5.7l9.7-26.4ZM212.8,403.8l-3.1-9.1-3.3,9.1h6.3Z" fill="#fff"/>
+    <path d="M229,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M256.1,393.4h-7.6v-5h21.5v5h-7.5v21.4h-6.4v-21.4Z" fill="#fff"/>
+    <path d="M276.1,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M314,403.1l-9.2-14.7h7.2l5.7,9.8,5.7-9.8h6.3l-9.3,14.9v11.5h-6.4v-11.7Z" fill="#fff"/>
+    <path d="M347.6,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M371.6,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M383.9,388.4h6.7l6.5,19.2,6.2-19.2h5.7l-9.3,26.4h-6.5l-9.3-26.4Z" fill="#fff"/>
+    <path d="M414.9,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M429.5,388.4h7.1l10.7,16.5v-16.5h5.4v26.4h-6.1l-11.8-18.2v18.2h-5.4v-26.4Z" fill="#fff"/>
+    <path d="M459.9,402.1c0-8.8,5.2-14.2,13.1-14.2s10.8,3.6,11.7,9.6h-6.2c-.5-2.9-2.4-4.4-5.4-4.4s-6.6,3.2-6.6,8.8v.5c0,5.2,2.5,8.1,6.7,8.1s5.3-1.7,5.6-4.6h-5.2v-4.5h11.3v13.4h-5.6v-3.4c-1.4,2.5-3.9,4-7.5,4-7.2,0-11.8-5.2-11.8-13.3Z" fill="#fff"/>
+  </g>
+</svg>
+    </div>
+
+    <h1 class="hero-headline">The brands people choose aren’t lucky. They’re built.</h1>
+
+  </div>
+  <div class="hero-glass"></div>
+  <div class="hero-aside-photo">
+    <img src="./photos/getty-images-iE-3eJbdvgI-unsplash.jpg" alt="">
+  </div>
+</section>
+
+<section class="hero-below">
+  <div class="hero-below-inner">
+    <p class="hero-sub">Think about the relationships you keep choosing, with friends, mentors, the brands you actually trust. They work because both sides get something real out of them. <span class="hero-sub-bold">That's reciprocity.</span> And it's exactly how lasting brand preference is built. Parallel Path shows you where your brand is delivering that exchange. And where it isn't.</p>
+    <a href="#assessment" class="hero-cta">
+      Take the assessment
+      <span class="hero-cta-arrow">↓</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STATEMENT
+═══════════════════════════════════════════ -->
+<section class="statement">
+  <div class="statement-inner">
+    <div class="statement-numeral">01</div>
+    <div class="statement-content">
+      <p class="section-eyebrow">The framework</p>
+      <h2 class="statement-headline">Three things have to work together before a customer chooses your brand.</h2>
+      <ul class="statement-list">
+        <li><span class="statement-list-label">Identity</span> tells them who you are and whether you're for them.</li>
+        <li><span class="statement-list-label">Connection</span> puts you in front of them at the right moment, with something worth their attention.</li>
+        <li><span class="statement-list-label">Experience</span> delivers on what you've promised.</li>
+      </ul>
+      <p class="statement-body">When one falls short, the exchange breaks down and preference slips. Most brands have at least one gap they haven't named yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FRAMEWORK — Overlapping Forms + Pillars
+═══════════════════════════════════════════ -->
+<section class="framework">
+  <div class="framework-inner">
+
+    <div class="sec-num">02</div>
+
+    <div class="framework-header">
+      <div>
+        <p class="section-eyebrow">Identity. Connection. Experience.</p>
+        <h2 class="framework-headline">Three pillars.<br>One path.</h2>
+      </div>
+      <p class="framework-desc">Once you understand the Parallel Path framework for how consumers develop brand preference, you can optimize each layer to build deeper engagement, stronger experiences, and lasting brand goodness.</p>
+    </div>
+
+    <!-- Diagram 1: Framework layers -->
+    <div class="blob-wrap reveal-swipe">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 215.1 95.6" style="width:100%;max-width:720px;display:block;margin:0 auto;">
+        <defs>
+          <radialGradient id="d1-rg" cx="109" cy="74.7" fx="109" fy="74.7" r="93.7" gradientTransform="translate(.3 14.3) rotate(.3) scale(1 .8)" gradientUnits="userSpaceOnUse">
+            <stop offset=".4" stop-color="#fff" stop-opacity=".9"/>
+            <stop offset=".5" stop-color="#eef4f5" stop-opacity=".9"/>
+            <stop offset=".7" stop-color="#c2d9db" stop-opacity=".9"/>
+            <stop offset=".9" stop-color="#97bfc2" stop-opacity=".9"/>
+          </radialGradient>
+          <radialGradient id="d1-rg-2" cx="70.5" cy="79.7" fx="70.5" fy="79.7" r="55.6" gradientTransform="translate(.4 15.6) rotate(.3) scale(1 .8)" gradientUnits="userSpaceOnUse">
+            <stop offset=".5" stop-color="#8aa9aa" stop-opacity=".6"/>
+            <stop offset=".6" stop-color="#73989a" stop-opacity=".6"/>
+            <stop offset="1" stop-color="#3c6f72" stop-opacity=".5"/>
+          </radialGradient>
+          <radialGradient id="d1-rg-3" cx="33.5" cy="87.2" fx="33.5" fy="87.2" r="28.6" gradientTransform="translate(.4 17.3) rotate(.3) scale(1 .8)" gradientUnits="userSpaceOnUse">
+            <stop offset=".6" stop-color="#97bfc2" stop-opacity=".5"/>
+            <stop offset=".9" stop-color="#699598" stop-opacity=".6"/>
+            <stop offset="1" stop-color="#467679" stop-opacity=".7"/>
+            <stop offset="1" stop-color="#3c6f72" stop-opacity=".5"/>
+          </radialGradient>
+        </defs>
+        <path d="M215.1,90.2c-.1-9.4-4.3-18.3-9.5-26.6l-.2-.2c-16.2-25.9-49-46-68.2-55.8C112.1-5.8,88.6-.1,64.1,15.1,36.2,32,10.5,57.4,1.5,81.6.4,84.5,0,87.4,0,90.2h215.1Z" fill="url(#d1-rg)"/>
+        <path d="M136.6,90.1c0-5.8-2-11.5-5.7-17.3v-.2c-10.5-15.8-26-26.8-41.1-34.9-21-11.8-46.6,0-64.1,14.1-8.6,7-14.8,13.4-20.4,22.3C2,79,.1,84.6,0,90.1h136.5Z" fill="url(#d1-rg-2)" opacity=".9"/>
+        <path d="M64.1,90.2c0-2.7-.7-5.5-2.4-8.2v-.2c-3.3-5.1-8.1-9.4-13-12.9-13.1-10.4-27.5-4.6-38.7,5.3-4.6,4.2-9,9.9-9.1,16h63.2Z" fill="url(#d1-rg-3)" opacity=".9"/>
+        <path d="M7.3,90.1h0c0,3,2.4,5.4,5.4,5.4h38c3,0,5.4-2.3,5.4-5.3h0c0-3-2.4-5.4-5.4-5.4H12.7c-3,0-5.4,2.3-5.4,5.3Z" fill="#233d4d"/>
+        <path d="M77.8,90.1h0c0,3,2.4,5.4,5.4,5.4h38c3,0,5.4-2.3,5.4-5.3h0c0-3-2.4-5.4-5.4-5.4h-38c-3,0-5.4,2.3-5.4,5.3Z" fill="#233d4d"/>
+        <path d="M157.6,90.1h0c0,3,2.4,5.4,5.4,5.4h38c3,0,5.4-2.3,5.4-5.3h0c0-3-2.4-5.4-5.4-5.4h-38c-3,0-5.4,2.3-5.4,5.3Z" fill="#233d4d"/>
+        <line x1="34.2" y1="90.2" x2="215.1" y2="90.1" fill="none" stroke="#233d4d" stroke-miterlimit="10" stroke-width=".2"/>
+        <text x="31.7" y="90.4" text-anchor="middle" dominant-baseline="middle" font-family="halyard-display,halyard-text,system-ui,sans-serif" font-size="3.4" font-weight="400" fill="#f1f1f2">Identity</text>
+        <text x="102.2" y="90.4" text-anchor="middle" dominant-baseline="middle" font-family="halyard-display,halyard-text,system-ui,sans-serif" font-size="3.4" font-weight="400" fill="#f1f1f2">Connection</text>
+        <text x="182" y="90.4" text-anchor="middle" dominant-baseline="middle" font-family="halyard-display,halyard-text,system-ui,sans-serif" font-size="3.4" font-weight="400" fill="#f1f1f2">Experience</text>
+      </svg>
+    </div>
+
+    <!-- Three pillars -->
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Identity</div>
+        <ul class="pillar-items">
+          <li>Brand name and positioning</li>
+          <li>Visual identity</li>
+          <li>Tone of voice and messaging</li>
+          <li>Competitive differentiation</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Connection</div>
+        <ul class="pillar-items">
+          <li>Media and channel strategy</li>
+          <li>Content and storytelling</li>
+          <li>Partnerships and sponsorships</li>
+          <li>Community and earned attention</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Experience</div>
+        <ul class="pillar-items">
+          <li>Product and service delivery</li>
+          <li>Customer journey</li>
+          <li>Post-purchase relationship</li>
+          <li>Brand moments that stick</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bridge -->
+    <div class="framework-bridge">
+      <button class="framework-bridge-btn" type="button">
+        Read on to see how to put this idea to use for your brand
+        <span style="font-size:18px;line-height:1;">↓</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PHOTO BREAK
+═══════════════════════════════════════════ -->
+<div class="photo-break">
+  <img src="./photos/20240611_AlabamaHills_V3_6368.jpg.webp" alt="">
+  <div class="photo-break-overlay">
+    <div class="photo-break-content">
+      <p class="photo-break-quote">Customers don't remember your media plan. They remember how you made them feel.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ENDPOINT — Triple Venn
+═══════════════════════════════════════════ -->
+<section class="endpoint">
+  <div class="endpoint-inner">
+
+    <div class="endpoint-header">
+      <div class="sec-num">03</div>
+      <p class="endpoint-eyebrow">The endpoint</p>
+      <h2 class="endpoint-headline">When all three overlap, customers don't just buy. They choose you.</h2>
+    </div>
+
+    <div class="venn-wrap reveal">
+      <!-- Diagram 2: Overlapping brand pillars -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 215.1 172.1" style="width:100%;min-width:320px;max-width:660px;display:block;">
+        <defs>
+          <radialGradient id="d2-rg" cx="154.7" cy="68.2" fx="154.7" fy="68.2" r="58.2" gradientTransform="translate(-30.7 9) rotate(.4) scale(.9 .8) skewX(0)" gradientUnits="userSpaceOnUse">
+            <stop offset=".2" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".2" stop-color="#fbfdfd" stop-opacity="0"/>
+            <stop offset=".4" stop-color="#f1f9fa" stop-opacity=".2"/>
+            <stop offset=".6" stop-color="#e0f3f5" stop-opacity=".5"/>
+            <stop offset=".8" stop-color="#caeaef" stop-opacity=".9"/>
+            <stop offset=".9" stop-color="#c3e8ed"/>
+          </radialGradient>
+          <radialGradient id="d2-rg-2" cx="-9.2" cy="409.6" fx="-9.2" fy="409.6" r="58.2" gradientTransform="translate(-204.2 -63.9) rotate(-59.8) scale(.9 .8) skewX(0)" gradientUnits="userSpaceOnUse">
+            <stop offset=".3" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".3" stop-color="#fbfdfd" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#f1f9fa" stop-opacity=".2"/>
+            <stop offset=".6" stop-color="#e0f3f5" stop-opacity=".5"/>
+            <stop offset=".9" stop-color="#caeaef" stop-opacity=".9"/>
+            <stop offset=".9" stop-color="#c3e8ed"/>
+          </radialGradient>
+          <radialGradient id="d2-rg-3" cx="33.4" cy="442.2" fx="33.4" fy="442.2" r="58.2" gradientTransform="translate(-198.5 269.7) rotate(59.8) scale(.9 -.8) skewX(0)" gradientUnits="userSpaceOnUse">
+            <stop offset=".2" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".3" stop-color="#fbfdfd" stop-opacity="0"/>
+            <stop offset=".4" stop-color="#f1f9fa" stop-opacity=".2"/>
+            <stop offset=".6" stop-color="#e0f3f5" stop-opacity=".5"/>
+            <stop offset=".8" stop-color="#caeaef" stop-opacity=".9"/>
+            <stop offset=".9" stop-color="#c3e8ed"/>
+          </radialGradient>
+        </defs>
+        <path d="M153,51.6c-7.5-13.7-22.7-24.4-31.6-29.6-11.6-7-22.5-4-33.8,4.1-12.9,9-24.8,22.4-28.9,35.3-1.8,5.5.2,10.5,2.6,15.4,7.8,14.1,21.8,28.6,38.3,35.3,8.5,3.2,16.9,1,24.1-3.8,8.7-5.1,28-19.7,32.6-35.7,2.7-7.4.3-14.5-3.2-20.9h0Z" fill="url(#d2-rg)"/>
+        <path d="M93.6,66.3c-15.7-.3-32.5,7.5-41.5,12.6-11.9,6.6-14.7,17.5-13.3,31.4,1.4,15.7,7.2,32.7,16.3,42.7,3.9,4.3,9.2,5.1,14.7,5.5,16.2.3,35.7-4.6,49.8-15.6,7.1-5.8,9.3-14.2,8.7-22.8,0-10.1-3.2-34.1-14.8-46.2-5.1-6.1-12.5-7.5-19.7-7.6h-.1Z" fill="url(#d2-rg-2)"/>
+        <path d="M141.8,159c-15.7.3-32.5-7.5-41.5-12.6-11.9-6.6-14.7-17.5-13.3-31.4,1.4-15.7,7.2-32.7,16.3-42.7,3.9-4.3,9.2-5.1,14.7-5.5,16.2-.3,35.7,4.6,49.8,15.6,7.1,5.8,9.3,14.2,8.7,22.8,0,10.1-3.2,34.1-14.8,46.2-5.1,6.1-12.5,7.5-19.7,7.6h-.1Z" fill="url(#d2-rg-3)"/>
+        <g><path d="M146.4,160.2h2.8v.5h-2.2v1.1h1.5v.5h-1.5v1.3h2.3v.5h-2.9v-4Z" fill="#b5ceeb"/><path d="M150.4,162.7l-.9-1.4h.7l.6,1,.6-1h.6l-1,1.4,1,1.5h-.7l-.7-1.1-.7,1.1h-.6l1-1.5Z" fill="#b5ceeb"/><path d="M152.5,161.4h.6v.4c.2-.3.5-.5.9-.5.7,0,1.3.5,1.3,1.5h0c0,.9-.5,1.5-1.3,1.5s-.7-.2-.9-.5v1.5h-.6v-3.9ZM154.6,162.8h0c0-.6-.3-1-.8-1s-.8.4-.8,1h0c0,.6.3,1,.8,1s.8-.4.8-1Z" fill="#b5ceeb"/><path d="M155.6,162.8c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM157.7,162.6c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#b5ceeb"/><path d="M158.7,161.4h.6v.5c0-.3.3-.5.8-.5h0v.6h-.3c-.5,0-.6.3-.6.8v1.4h-.6v-2.8Z" fill="#b5ceeb"/><path d="M160.7,160.3h.6v.6h-.6v-.6ZM160.7,161.4h.6v2.8h-.6v-2.8Z" fill="#b5ceeb"/><path d="M161.7,162.8c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM163.8,162.6c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#b5ceeb"/><path d="M164.9,161.4h.6v.5c.1-.4.4-.6.9-.6.6,0,1,.4,1,1.2v1.7h-.6v-1.7c0-.4-.2-.7-.6-.7s-.7.4-.7,1v1.4h-.6v-2.8Z" fill="#b5ceeb"/><path d="M167.8,162.8c0-.8.6-1.5,1.4-1.5s1.1.4,1.3.9l-.6.2c0-.4-.3-.6-.7-.6s-.8.4-.8,1h0c0,.6.3,1,.8,1s.7-.2.7-.6l.6.2c-.2.6-.6.9-1.3.9s-1.4-.6-1.4-1.5Z" fill="#b5ceeb"/><path d="M170.7,162.8c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM172.8,162.6c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#b5ceeb"/></g>
+        <g><path d="M40.1,162.2c0-1.2.8-2.1,1.8-2.1s1.6.5,1.7,1.5h-.6c-.1-.7-.5-.9-1.1-.9s-1.2.6-1.2,1.5h0c0,1,.5,1.5,1.2,1.5s1-.2,1.1-1h.6c-.2,1.1-.9,1.5-1.8,1.5s-1.8-.8-1.8-2.1Z" fill="#b5ceeb"/><path d="M43.9,162.8c0-.9.6-1.5,1.4-1.5s1.4.6,1.4,1.5-.6,1.5-1.4,1.5-1.4-.6-1.4-1.5ZM46.1,162.8h0c0-.6-.3-1-.8-1s-.8.4-.8,1h0c0,.6.3,1,.8,1s.8-.4.8-.9Z" fill="#b5ceeb"/><path d="M47.2,161.4h.6v.5c.1-.4.4-.6.9-.6.6,0,1,.4,1,1.2v1.7h-.6v-1.7c0-.4-.2-.7-.6-.7s-.7.4-.7,1v1.4h-.6v-2.8Z" fill="#b5ceeb"/><path d="M50.2,161.4h.6v.5c.1-.4.4-.6.9-.6.6,0,1,.4,1,1.2v1.7h-.6v-1.7c0-.4-.2-.7-.6-.7s-.7.4-.7,1v1.4h-.6v-2.8Z" fill="#b5ceeb"/><path d="M53,162.8c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM55.1,162.6c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#b5ceeb"/><path d="M56.1,162.8c0-.8.6-1.5,1.4-1.5s1.1.4,1.3.9l-.6.2c0-.4-.3-.6-.7-.6s-.8.4-.8,1h0c0,.6.3,1,.8,1s.7-.2.7-.6l.6.2c-.2.6-.6.9-1.3.9s-1.4-.6-1.4-1.5Z" fill="#b5ceeb"/><path d="M59.3,163.5v-1.6h-.4v-.5h.4v-.5l.6-.4v.9h.6v.5h-.6v1.5c0,.2,0,.3.3.3h.3v.5h-.5c-.5,0-.6-.3-.7-.7Z" fill="#b5ceeb"/><path d="M61,160.3h.6v.6h-.6v-.6ZM61,161.4h.6v2.8h-.6v-2.8Z" fill="#b5ceeb"/><path d="M62.1,162.8c0-.9.6-1.5,1.4-1.5s1.4.6,1.4,1.5-.6,1.5-1.4,1.5-1.4-.6-1.4-1.5ZM64.3,162.8h0c0-.6-.3-1-.8-1s-.8.4-.8,1h0c0,.6.3,1,.8,1s.8-.4.8-.9Z" fill="#b5ceeb"/><path d="M65.3,161.4h.6v.5c.1-.4.4-.6.9-.6.6,0,1,.4,1,1.2v1.7h-.6v-1.7c0-.4-.2-.7-.6-.7s-.7.4-.7,1v1.4h-.6v-2.8Z" fill="#b5ceeb"/></g>
+        <g><path d="M98.9,11h.6v4h-.6v-4Z" fill="#b5ceeb"/><path d="M100,13.6c0-.9.5-1.5,1.3-1.5s.7.2.9.5v-1.6h.6v4h-.6v-.4c-.2.3-.5.5-.9.5-.7,0-1.3-.5-1.3-1.5ZM102.2,13.6h0c0-.6-.3-1-.8-1s-.8.4-.8,1h0c0,.6.3,1,.8,1s.8-.4.8-1Z" fill="#b5ceeb"/><path d="M103.2,13.6c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM105.3,13.3c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#b5ceeb"/><path d="M106.4,12.2h.6v.5c.1-.4.4-.6.9-.6.6,0,1,.4,1,1.2v1.7h-.6v-1.7c0-.4-.2-.7-.6-.7s-.7.4-.7,1v1.4h-.6v-2.8Z" fill="#b5ceeb"/><path d="M109.6,14.3v-1.6h-.4v-.5h.4v-.6l.6-.4v.9h.6v.5h-.6v1.5c0,.2,0,.3.3.3h.3v.5h-.5c-.5,0-.6-.3-.7-.7Z" fill="#b5ceeb"/><path d="M111.3,11.1h.6v.6h-.6v-.6ZM111.3,12.2h.6v2.8h-.6v-2.8Z" fill="#b5ceeb"/><path d="M112.7,14.3v-1.6h-.4v-.5h.4v-.6l.6-.4v.9h.6v.5h-.6v1.5c0,.2,0,.3.3.3h.3v.5h-.5c-.5,0-.6-.3-.7-.7Z" fill="#b5ceeb"/><path d="M114.2,15.6h.3c.4,0,.5,0,.7-.7l-1.1-2.8h.6l.8,2.1.7-2.1h.6l-1.1,3c-.3.7-.5.9-1.2.9h-.3v-.5Z" fill="#b5ceeb"/></g>
+        <g><path d="M94.4,94.8h1.3c1.1,0,1.6.4,1.6,1.2s-.5,1.3-1.6,1.3h-.6v1.5h-.6v-4ZM95.7,96.8c.7,0,1-.2,1-.8s-.3-.7-1-.7h-.7v1.5h.6Z" fill="#233D4D"/><path d="M97.8,95.9h.6v.5c0-.3.3-.5.8-.5h0v.6h-.3c-.5,0-.6.3-.6.8v1.4h-.6v-2.8Z" fill="#233D4D"/><path d="M99.6,97.3c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM101.7,97.1c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#233D4D"/><path d="M103.1,96.4h-.5v-.5h.5v-.3c0-.7.2-.9.8-.9h.5v.5h-.2c-.4,0-.4,0-.4.4v.2h.6v.5h-.6v2.3h-.6v-2.3Z" fill="#233D4D"/><path d="M104.4,97.3c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM106.5,97.1c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#233D4D"/><path d="M107.6,95.9h.6v.5c0-.3.3-.5.8-.5h0v.6h-.3c-.5,0-.6.3-.6.8v1.4h-.6v-2.8Z" fill="#233D4D"/><path d="M109.4,97.3c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM111.5,97.1c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#233D4D"/><path d="M112.6,95.9h.6v.5c.1-.4.4-.6.9-.6.6,0,1,.4,1,1.2v1.7h-.6v-1.7c0-.4-.2-.7-.6-.7s-.7.4-.7,1v1.4h-.6v-2.8Z" fill="#233D4D"/><path d="M115.4,97.3c0-.8.6-1.5,1.4-1.5s1.1.4,1.3.9l-.6.2c0-.4-.3-.6-.7-.6s-.8.4-.8,1h0c0,.6.3,1,.8,1s.7-.2.7-.6l.6.2c-.2.6-.6.9-1.3.9s-1.4-.6-1.4-1.5Z" fill="#233D4D"/><path d="M118.3,97.3c0-.9.6-1.5,1.4-1.5s1.3.6,1.3,1.4v.2h-2.1c0,.5.3.8.8.8s.7-.2.8-.5l.5.2c-.2.4-.6.8-1.3.8s-1.4-.6-1.4-1.4ZM120.4,97.1c0-.5-.3-.7-.7-.7s-.7.3-.8.7h1.5Z" fill="#233D4D"/></g>
+      </svg>
+    </div><!-- /venn-wrap -->
+
+    <div class="endpoint-lower">
+      <p class="endpoint-body">Brand reciprocity is what happens when your identity is clear, your connection is consistent, and your experience delivers. Customers feel it — and they come back. That's not loyalty by accident. That's preference by design.</p>
+      <div class="endpoint-pill">Customer reciprocity can also be called brand preference. It's the result of successful engagement across every touchpoint, when your brand and your customers are in a mutually beneficial relationship.</div>
+    </div><!-- /endpoint-lower -->
+  </div><!-- /endpoint-inner -->
+
+  <!-- ── Pillar deep-dives ── -->
+  <div class="pillar-divider"></div>
+
+  <div class="pillar-deep">
+    <div class="pillar-deep-inner">
+      <div class="pillar-deep-photo">
+        <img src="./photos/Pool_Towel_8150.jpg.webp" alt="Brand lifestyle moment">
+      </div>
+      <div class="pillar-deep-content">
+        <p class="pillar-deep-eyebrow">Identity</p>
+        <h2 class="pillar-deep-headline">How your brand shows up before anyone clicks or buys.</h2>
+        <p class="pillar-deep-body">Identity is the foundation of brand preference. It includes your visual system, voice, values, and positioning — the things people use to recognize and remember you. Consumers form impressions in seconds. A clear identity gives them something to hold onto.</p>
+        <div class="case-study-card">
+          <img src="./sp-logo.svg" alt="Client logo placeholder" class="case-study-logo">
+          <p class="case-study-label">Client Story</p>
+          <p class="case-study-client">WHOOP — Scaling a performance brand</p>
+          <p class="case-study-desc">Parallel Path helped WHOOP define and extend a brand identity that could move with the athlete — from wearable startup to performance culture icon.</p>
+          <a class="case-study-cta" href="#">Read case study ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pillar-divider"></div>
+
+  <div class="pillar-deep pillar-deep--reverse">
+    <div class="pillar-deep-inner">
+      <div class="pillar-deep-photo">
+        <img src="./photos/Bicycle_9331.jpg.webp" alt="Active connection in motion">
+      </div>
+      <div class="pillar-deep-content">
+        <p class="pillar-deep-eyebrow">Connection</p>
+        <h2 class="pillar-deep-headline">Where and how you show up in the moments that matter.</h2>
+        <p class="pillar-deep-body">Connection is your marketing — the channels, content, and campaigns that reach people when they're open to listening. It's not just impressions. It's relevance, timing, and consistency across the places your audience actually spends time.</p>
+        <div class="case-study-card">
+          <img src="./sp-logo.svg" alt="Client logo placeholder" class="case-study-logo">
+          <p class="case-study-label">Client Story</p>
+          <p class="case-study-client">Ascent Protein — DTC to retail</p>
+          <p class="case-study-desc">Parallel Path helped Ascent Protein expand from direct-to-consumer into national retail by rethinking how they connected with athletes at every stage of the path to purchase.</p>
+          <a class="case-study-cta" href="#">Read case study ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pillar-divider"></div>
+
+  <div class="pillar-deep">
+    <div class="pillar-deep-inner">
+      <div class="pillar-deep-photo">
+        <img src="./photos/stelo-friends-eating-hamburgers.webp" alt="The moment of experience">
+      </div>
+      <div class="pillar-deep-content">
+        <p class="pillar-deep-eyebrow">Experience</p>
+        <h2 class="pillar-deep-headline">What people actually feel when they interact with your brand.</h2>
+        <p class="pillar-deep-body">Experience is the moment of truth — the purchase, the product, the service, the follow-up. This is where preference is either confirmed or eroded. Brands that deliver on what their identity and connection promise are the ones people come back to.</p>
+        <div class="case-study-card">
+          <img src="./sp-logo.svg" alt="Client logo placeholder" class="case-study-logo">
+          <p class="case-study-label">Client Story</p>
+          <p class="case-study-client">First Watch — Daytime dining, full-funnel</p>
+          <p class="case-study-desc">Parallel Path helped First Watch connect the in-restaurant experience to a consistent brand story across digital channels, driving awareness among health-conscious diners across 500+ locations.</p>
+          <a class="case-study-cta" href="#">Read case study ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PULSE REPORT
+═══════════════════════════════════════════ -->
+<section class="pulse">
+  <div class="pulse-inner">
+
+    <div class="pulse-photo">
+      <img src="./photos/CoffeeMoment_5112.jpg.webp" alt="">
+    </div>
+
+    <div class="pulse-content">
+      <div class="sec-num">04</div>
+      <p class="pulse-eyebrow">What you get</p>
+      <h2 class="pulse-headline">Your Pulse Report — a clear picture of where you stand.</h2>
+      <p class="pulse-body">After you complete the assessment, the Parallel Path team reviews your responses and sends you a personalized Pulse Report within 48 hours. No pitch. Just a clear read on where your brand is strong and where there's a gap worth closing.</p>
+
+      <div class="pulse-item">
+        <div class="pulse-dot"></div>
+        <p class="pulse-item-text">A score across all three dimensions — identity, connection, and experience</p>
+      </div>
+      <div class="pulse-item">
+        <div class="pulse-dot"></div>
+        <p class="pulse-item-text">Specific observations about where your brand is leaving preference on the table</p>
+      </div>
+      <div class="pulse-item">
+        <div class="pulse-dot"></div>
+        <p class="pulse-item-text">An invitation to continue the conversation — on your terms, at your pace</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ASSESSMENT
+═══════════════════════════════════════════ -->
+<section class="assessment" id="assessment">
+  <div class="assessment-inner">
+
+    <div class="sec-num">05</div>
+    <p class="assessment-eyebrow">Brand Reciprocity Assessment</p>
+    <h2 class="assessment-headline">Find out where your brand stands.</h2>
+    <p class="assessment-sub">Six questions. Three minutes. You'll receive a personalized Pulse Report from the Parallel Path team within 48 hours. After that, you can choose to receive ongoing category research and insights from our team.</p>
+
+    <!-- Q1 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">01 —</span>Where does your brand feel most confident right now?</p>
+      <div class="options" data-q="q1">
+        <label class="option-label"><input type="radio" name="q1" value="identity"> Identity — who we are and what we stand for</label>
+        <label class="option-label"><input type="radio" name="q1" value="connection"> Connection — how we reach and engage people</label>
+        <label class="option-label"><input type="radio" name="q1" value="experience"> Experience — what people feel when they interact with us</label>
+        <label class="option-label"><input type="radio" name="q1" value="unsure"> Still figuring that out</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">02 —</span>Where do you feel the biggest gap?</p>
+      <div class="options" data-q="q2">
+        <label class="option-label"><input type="radio" name="q2" value="identity"> Identity</label>
+        <label class="option-label"><input type="radio" name="q2" value="connection"> Connection</label>
+        <label class="option-label"><input type="radio" name="q2" value="experience"> Experience</label>
+        <label class="option-label"><input type="radio" name="q2" value="unsure"> Hard to say</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">03 —</span>Do you have a media partner helping with connection and distribution?</p>
+      <div class="options" data-q="q3">
+        <label class="option-label"><input type="radio" name="q3" value="yes-happy"> Yes, and we're happy with the relationship</label>
+        <label class="option-label"><input type="radio" name="q3" value="yes-open"> Yes, but open to something better</label>
+        <label class="option-label"><input type="radio" name="q3" value="no-inhouse"> No — we handle it in-house</label>
+        <label class="option-label"><input type="radio" name="q3" value="no-list"> No — it's on the list</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q4 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">04 —</span>How does your leadership think about brand investment right now?</p>
+      <div class="options" data-q="q4">
+        <label class="option-label"><input type="radio" name="q4" value="priority"> Top priority — we're actively investing</label>
+        <label class="option-label"><input type="radio" name="q4" value="roadmap"> It's on the roadmap</label>
+        <label class="option-label"><input type="radio" name="q4" value="sellthrough"> It's a hard internal sell</label>
+        <label class="option-label"><input type="radio" name="q4" value="performance"> Performance comes first — brand is secondary</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q5 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">05 —</span>What matters most to your brand in the next 12 months?</p>
+      <div class="options" data-q="q5">
+        <label class="option-label"><input type="radio" name="q5" value="awareness"> Building awareness in new markets</label>
+        <label class="option-label"><input type="radio" name="q5" value="loyalty"> Deepening loyalty with existing customers</label>
+        <label class="option-label"><input type="radio" name="q5" value="category"> Owning a category or moment</label>
+        <label class="option-label"><input type="radio" name="q5" value="clarity"> Getting clearer on who we are</label>
+        <label class="option-label"><input type="radio" name="q5" value="cx"> Improving the customer experience end-to-end</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Q6 -->
+    <div class="question-block">
+      <p class="question-text"><span class="question-num">06 —</span>Would a 30-minute conversation with the Parallel Path team be useful?</p>
+      <div class="options" data-q="q6">
+        <label class="option-label"><input type="radio" name="q6" value="yes"> Yes — please reach out</label>
+        <label class="option-label"><input type="radio" name="q6" value="maybe"> Maybe — send the report first</label>
+        <label class="option-label"><input type="radio" name="q6" value="no"> Not right now</label>
+      </div>
+    </div>
+
+    <div class="question-divider"></div>
+
+    <!-- Contact fields -->
+    <div class="contact-section">
+      <p class="contact-headline">Where should we send your Pulse Report?</p>
+      <div class="contact-fields">
+        <div class="field-wrap">
+          <label class="field-label" for="fname">First name</label>
+          <input class="field-input" id="fname" type="text" placeholder="Amanda">
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="lname">Last name</label>
+          <input class="field-input" id="lname" type="text" placeholder="Williams">
+        </div>
+      </div>
+      <div class="contact-full">
+        <div class="field-wrap">
+          <label class="field-label" for="email">Work email</label>
+          <input class="field-input" id="email" type="email" placeholder="you@yourbrand.com">
+        </div>
+      </div>
+      <div class="contact-full">
+        <div class="field-wrap">
+          <label class="field-label" for="company">Brand or company</label>
+          <input class="field-input" id="company" type="text" placeholder="Your brand name">
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-area">
+      <button class="submit-btn" type="button" onclick="handleSubmit()">
+        Get your Pulse Report
+        <span style="font-size:18px;line-height:1;">→</span>
+      </button>
+      <p class="submit-note">We'll review your answers and follow up within 48 hours. No spam, no pitch decks.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg id="fl" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 742 415.4">
+  <g>
+    <path d="M19.3,162.2v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H0v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+    <path d="M201.1,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM180.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M265.5,167.1v-51.1c0-8.4-1.9-13-16.5-14.4v-6.5c16.5-2.6,32-6.3,47.6-13.5l4.6,4.4-4.2,28.3h7c8.1-20.9,16.5-32.7,30.4-32.7s5.8.5,9.1,1.9v30.4c-5.6-2.8-10.9-3.5-15.3-3.5-20.9,0-29,16.7-29,32.5v24.1c0,10.2,5.6,11.4,17.2,13.5v7h-67.3v-7c10.9-2.1,16.5-3.3,16.5-13.5Z" fill="#fff"/>
+    <path d="M408.2,170.8c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM387.7,173.8c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M470.5,167.1v-80.7c0-8.4.2-41-17-42.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v138.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M534.1,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M577.3,136.9c0-34.1,26.5-53.6,55.7-53.6s53.4,28.8,43.9,51.6h-65.5c3,22.5,17,36.2,37.2,36.2s20-3.7,24.6-9.8l4.9,3.9c-6,14.9-23.2,23.9-45,23.9-32.3,0-55.7-20.2-55.7-52.2ZM645.8,125.3c3-16.3-1.6-32.5-15.3-32.5s-19.7,10.2-19.7,32v.5h35.1Z" fill="#fff"/>
+    <path d="M691.4,167.1V34.4c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v162.7c0,10.2,4.9,11.4,17,13.5v7h-67.6v-7c12.1-2.1,17-3.3,17-13.5Z" fill="#fff"/>
+    <path d="M240.9,336c-7.9,8.4-20.7,18.3-38.5,18.3s-29.7-6.7-29.7-24.6,20-26,48.1-34.1c7.2-2.3,15.8-3.7,20.2-10.4v-4.4c0-18.3-7.4-22.1-21.4-22.1s-5.8,2.3-7.2,6c-6.5,18.6-12.1,24.1-20,24.1s-12.1-5.3-12.1-11.1c0-17.6,37.6-29.3,58.5-29.3s35.8,13.7,35.8,35.8v45.7c0,7.2,7.7,9.3,17.4,3.5v6.7c-9.8,6.7-16.5,11.1-30.2,14.2-10,0-20.2-8.8-20.9-18.3ZM220.4,339c7.7,0,14.6-5.3,20.4-13v-26.9l-17.2,4.6c-12.1,3.5-17.2,11.1-17.2,19s4.9,16.3,13.9,16.3Z" fill="#fff"/>
+    <path d="M297.5,334.8v-71.3h-17.6v-9.3c15.8-5.8,30.7-14.9,42.5-25.8h8.8v23.9l27.9-2.6c-.5,5.1-.7,8.6-.7,13.7h-27.2v61.8c0,8.8,3,12.1,9.3,12.1s15.1-1.9,20.7-3.7v8.4c-9.5,3.7-26.5,9.1-39.7,13-14.2,0-23.9-11.4-23.9-20.2Z" fill="#fff"/>
+    <path d="M444.6,332.3v-44.6c0-16-5.6-20.7-13.7-20.7s-12.1,1.9-20.2,11.6v53.6c0,10.2,4.6,11.4,12.8,13.5v7h-63.4v-7c12.1-2.1,17-3.3,17-13.5v-104.7c0-8.4.2-13-17-14.6v-6.5c16.5-1.9,31.8-6,46-13.2l4.6,4.4v71.1c10-10.9,20-20.2,37.4-20.2,24.8,0,30.2,19.7,30.2,35.8v48.1c0,10.2,4.6,11.4,15.3,13.5v7h-61.8v-7c8.1-2.1,12.8-3.3,12.8-13.5Z" fill="#fff"/>
+    <path d="M59,327.1v-95.7c0-15.6-7.2-16-19.3-18.3v-7h70.4c39.7,0,71.3,10.7,71.3,43s-30.9,47.4-75.5,47.4-3.7-10,0-10c31.8,0,37.2-17.6,37.2-36s-3.9-34.1-30.7-34.1-17,3.7-17,10.7v100.1c0,15.6,7.2,16,19.3,18.3v7H39.7v-7c12.1-2.3,19.3-2.8,19.3-18.3Z" fill="#fff"/>
+  </g>
+  <g>
+    <path d="M41.6,388.4h18.9v5h-12.5v6.4h8.9v5h-8.9v10h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M65.3,401.6c0-8.2,5.5-13.8,13.6-13.8s13.3,5.6,13.3,13.8-5.5,13.8-13.6,13.8-13.3-5.6-13.3-13.8ZM85.6,401.8v-.5c0-5.3-2.4-8.4-6.8-8.4s-6.8,3-6.8,8.4v.5c0,5.3,2.5,8.4,6.8,8.4s6.8-3,6.8-8.4Z" fill="#fff"/>
+    <path d="M99.2,388.4h10.6c8.1,0,10.8,3,10.8,7.2s-2.4,6.3-6.4,7.1c4.2,1,6,4.1,6.7,10,0,.5.2,1.7.2,2.1h-6.6s0-.9,0-1.2c-.6-5.1-2.2-8.3-6.6-8.4h-2.4v9.6h-6.3v-26.4ZM108.9,401.2c3.9,0,5.5-2.3,5.5-4.6s-1.5-3.8-5.2-3.8h-3.7v8.5l3.3-.2Z" fill="#fff"/>
+    <path d="M140.3,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M171.3,388.4h19.8v4.9h-13.5v5.6h8.6v4.9h-8.6v6h13.9v5h-20.2v-26.4Z" fill="#fff"/>
+    <path d="M206.6,388.4h7.1l9.3,26.4h-6.7l-2.3-6.6h-9.1l-2.3,6.6h-5.7l9.7-26.4ZM212.8,403.8l-3.1-9.1-3.3,9.1h6.3Z" fill="#fff"/>
+    <path d="M229,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M256.1,393.4h-7.6v-5h21.5v5h-7.5v21.4h-6.4v-21.4Z" fill="#fff"/>
+    <path d="M276.1,388.4h6.4v10.6h10.1v-10.6h6.4v26.4h-6.4v-11h-10.1v11h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M314,403.1l-9.2-14.7h7.2l5.7,9.8,5.7-9.8h6.3l-9.3,14.9v11.5h-6.4v-11.7Z" fill="#fff"/>
+    <path d="M347.6,388.4h6.4v21.5h11.3v4.9h-17.7v-26.4Z" fill="#fff"/>
+    <path d="M371.6,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M383.9,388.4h6.7l6.5,19.2,6.2-19.2h5.7l-9.3,26.4h-6.5l-9.3-26.4Z" fill="#fff"/>
+    <path d="M414.9,388.4h6.4v26.4h-6.4v-26.4Z" fill="#fff"/>
+    <path d="M429.5,388.4h7.1l10.7,16.5v-16.5h5.4v26.4h-6.1l-11.8-18.2v18.2h-5.4v-26.4Z" fill="#fff"/>
+    <path d="M459.9,402.1c0-8.8,5.2-14.2,13.1-14.2s10.8,3.6,11.7,9.6h-6.2c-.5-2.9-2.4-4.4-5.4-4.4s-6.6,3.2-6.6,8.8v.5c0,5.2,2.5,8.1,6.7,8.1s5.3-1.7,5.6-4.6h-5.2v-4.5h11.3v13.4h-5.6v-3.4c-1.4,2.5-3.9,4-7.5,4-7.2,0-11.8-5.2-11.8-13.3Z" fill="#fff"/>
+  </g>
+</svg>
+    </div>
+    <div class="footer-right">
+      <a class="footer-link" href="https://parallelpath.com">parallelpath.com</a>
+      <p class="footer-copy">© 2026 Parallel Path. Brand Reciprocity.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     SHOWCASE
+═══════════════════════════════════════════ -->
+<div class="showcase">
+  <div class="showcase-divider"></div>
+  <div class="showcase-header">
+    Diagrams in use
+    <span class="showcase-arrow">↓</span>
+  </div>
+  <div class="showcase-grid">
+    <div class="showcase-thumb">
+      <img src="./photos/example1.png" alt="Diagram overlaid on social video">
+    </div>
+    <div class="showcase-thumb">
+      <img src="./photos/example2.png" alt="Diagram overlaid on social video">
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-cards -->
+
+<script>
+// Option pill selection
+document.querySelectorAll('.options').forEach(function(group) {
+  group.querySelectorAll('.option-label').forEach(function(label) {
+    label.addEventListener('click', function() {
+      var q = group.getAttribute('data-q');
+      group.querySelectorAll('.option-label').forEach(function(l) {
+        l.classList.remove('selected');
+      });
+      this.classList.add('selected');
+    });
+  });
+});
+
+// Submit handler (placeholder — wire to actual backend)
+function handleSubmit() {
+  var fname = document.getElementById('fname').value.trim();
+  var email = document.getElementById('email').value.trim();
+  if (!fname || !email) {
+    alert('Please enter your name and email so we can send your Pulse Report.');
+    return;
+  }
+  // TODO: connect to form handler / CRM
+  var btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Sent — watch your inbox.';
+  btn.style.background = '#3C6E71';
+  btn.style.cursor = 'default';
+}
+</script>
+
+<script>
+(function() {
+  // Enable animations only once JS is confirmed running
+  document.documentElement.classList.add('anim-ready');
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-swipe').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Fallback: on load, reveal anything already in or near the viewport
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.reveal:not(.is-visible), .reveal-swipe:not(.is-visible)').forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 300) {
+        el.classList.add('is-visible');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
